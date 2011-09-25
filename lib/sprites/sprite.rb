@@ -1,18 +1,20 @@
 require 'pathname'
 require 'sprites/core_ext/pathname'
 require 'active_support/core_ext/array/extract_options'
+require 'sprites/sprite_piece'
 require 'sprites/stylesheet'
 
 module Sprites
   class Sprite
     extend Forwardable
 
-    attr_reader :name, :path
+    attr_reader :name, :path, :sprite_pieces
 
     def_delegator :@stylesheet, :stylesheet_path
 
     def initialize(name)
       @name = name
+      @sprite_pieces = SpritePieces.new
     end
 
     def define(*args, &blk)
@@ -21,6 +23,10 @@ module Sprites
       @stylesheet ||= Stylesheet.new(css_path)
 
       instance_eval(&blk)
+    end
+
+    def sprite_piece(options)
+      @sprite_pieces.add(options)
     end
 
     private
