@@ -21,10 +21,21 @@ module Sprites
       @sprites = Sprites.new
     end
 
+    # The +define+ method provides access to the dsl
+    # === Example
+    # Sprites.application.define do
+    #   ...
+    # end
     def define(&blk)
       instance_eval(&blk)
     end
 
+
+    # The +sprite+ method adds sprites to the application
+    # === Example
+    # Sprites.application.define do
+    #   ...
+    # end
     def sprite(*args, &blk)
       sprites.add(*args, &blk)
     end
