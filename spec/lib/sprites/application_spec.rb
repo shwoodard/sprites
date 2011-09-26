@@ -1,58 +1,60 @@
 require 'spec_helper'
 
 describe Application do
-
-  after do
-    Sprites.application.sprites.clear
+  before do
+    @app = Application.new
   end
 
   context "#define" do
     it 'should respond to define' do
-      Application.new.should respond_to(:define)
+      @app.should respond_to(:define)
     end
 
     it 'should allow access to the api when defining a sprite with a symbol' do
-      Sprites.application.define do
-        sprite :foo do
-          
-        end
-      end
-      Sprites.sprites[:foo].should be_a(Sprite)
-      Sprites.sprites[:foo].name.should be(:foo)
-      Sprites.sprites[:foo].path.to_s.should == "sprites/foo.png"
-      Sprites.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
+      @app.sprite(:foo) {}
+
+      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].name.should be(:foo)
+      @app.sprites[:foo].path.to_s.should == "sprites/foo.png"
+      @app.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
     end
 
     it 'should allow access to the api when defining a sprite with a hash' do
-      Sprites.application.define do
-        sprite 'sprites/foo.png' => 'sprites/foo.css' do
-          
-        end
-      end
-
-      Sprites.sprites[:foo].should be_a(Sprite)
-      Sprites.sprites[:foo].name.should be(:foo)
-      Sprites.sprites[:foo].path.to_s.should == "sprites/foo.png"
-      Sprites.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
+      @app.sprite('sprites/foo.png' => 'sprites/foo.css') {}
+      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].name.should be(:foo)
+      @app.sprites[:foo].path.to_s.should == "sprites/foo.png"
+      @app.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
     end
 
 
-    it 'should allow access to the api when defining a sprite with a hash' do
-      Sprites.application.define do
-        sprite 'sprites/foo.png' do
-          
-        end
-      end
+    it 'should allow access to the api when defining a sprite with a string' do
+      @app.sprite('sprites/foo.png') {}
 
-      Sprites.sprites[:foo].should be_a(Sprite)
-      Sprites.sprites[:foo].name.should be(:foo)
-      Sprites.sprites[:foo].path.to_s.should == "sprites/foo.png"
-      Sprites.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
+      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].name.should be(:foo)
+      @app.sprites[:foo].path.to_s.should == "sprites/foo.png"
+      @app.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
     end
     
   end
 
   context "#sprite" do
-    
+    it 'should respond_to sprite' do
+      @app.should respond_to(:sprite)
+    end
+
+    it 'should add a sprite' do
+      @app.sprite(:foo) {}
+      @app.sprites.should_not be_empty
+      @app.sprites.count.should be(1)
+      @app.sprites[:foo].should be_a(Sprite)
+    end
+  end
+
+  context 'initialize' do
+    it 'should create the sprites adt' do
+      @app.sprites.should_not be_nil
+    end
   end
 end

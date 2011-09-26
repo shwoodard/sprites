@@ -16,6 +16,14 @@ module Sprites
       @sprites.clear
     end
 
+    def empty?
+      @sprites.empty?
+    end
+
+    def count
+      @sprites.size
+    end
+
     def add(*args, &blk)
       name = sprite_name(*args)
       @sprites[name].define(*args, &blk)
