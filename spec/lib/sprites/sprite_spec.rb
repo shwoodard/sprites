@@ -6,6 +6,19 @@ describe Sprite do
     @sprite = Sprite.new(:foo)
   end
 
+  context '#name' do
+    it 'should retrieve the name' do
+      @sprite.name.should == :foo
+    end
+  end
+
+  context '#path' do
+    it 'should retrieve the path' do
+      @sprite.define(:foo) {}
+      @sprite.path.to_s.should == "sprites/foo.png"
+    end
+  end
+
   context "#define", "a method to further initialize the Sprite, e.g. with spite pieces" do
     shared_examples "a sprite definition with no options" do
       it 'the options should be empty' do
@@ -64,6 +77,26 @@ describe Sprite do
       sprite.sprite_pieces.should_not be_empty
       sprite.sprite_pieces.count.should be(1)
       sprite.sprite_pieces['sprite_images/foo.png'].selector.should == '.foo'
+    end
+  end
+
+  context '#sprite_pieces' do
+    it 'should return a SpritePieces adt' do
+      @sprite.sprite_pieces.should be_a(SpritePieces)
+    end
+  end
+
+  context '#stylesheet' do
+    it 'should return a Stylesheet' do
+      @sprite.define(:foo) {}
+      @sprite.stylesheet.should be_a(Stylesheet)
+    end
+  end
+
+  context '#stylesheet_path' do
+    it 'should return the stylesheet path' do
+      @sprite.define(:foo) {}
+      @sprite.stylesheet_path.to_s.should == 'sprites/foo.css'
     end
   end
 end
