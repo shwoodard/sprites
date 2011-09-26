@@ -11,7 +11,7 @@ describe Sprites do
     end
   end
 
-  context 'add' do
+  context '#add' do
     context 'with the sprite identified by a symbol' do
       it 'should add a sprite to the collection' do
         @sprites.add(:foo) {}
@@ -33,4 +33,43 @@ describe Sprites do
       end
     end
   end
+
+  context '#clear' do
+    it 'should clear the collection' do
+      @sprites.add(:foo) {}
+      @sprites.should_not be_empty
+      @sprites.clear
+      @sprites.should be_empty
+    end
+  end
+
+  context '#[]' do
+    it 'should retrieve the sprite' do
+      @sprites[:foo].should be_nil
+      @sprites.add(:foo) {}
+      @sprites[:foo].should be_a(Sprite)
+    end
+
+    it 'should not add to the collection during retrieval' do
+      @sprites[:foo]
+      @sprites.count.should be(0)
+    end
+  end
+
+  context '#empty?' do
+    it 'should be empty when initialized' do
+      @sprites.should be_empty
+    end
+  end
+
+  context '#count' do
+    it 'should respond with the number of sprites in the collection' do
+      @sprites.count.should be(0)
+      @sprites.add(:foo) {}
+      @sprites.count.should be(1)
+      @sprites.add(:bar) {}
+      @sprites.count.should be(2)
+    end
+  end
+  
 end

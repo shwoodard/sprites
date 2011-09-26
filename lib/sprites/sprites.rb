@@ -9,7 +9,9 @@ module Sprites
     end
 
     def [](sprite_identifier)
-      @sprites[sprite_identifier]
+      @sprites.has_key?(sprite_identifier) == false ?
+        nil :
+        @sprites[sprite_identifier]
     end
 
     def clear
