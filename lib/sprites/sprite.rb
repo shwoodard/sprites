@@ -8,7 +8,7 @@ module Sprites
   class Sprite
     extend Forwardable
 
-    attr_reader :name, :path, :sprite_pieces
+    attr_reader :name, :path, :sprite_pieces, :stylesheet
 
     def_delegator :@stylesheet, :stylesheet_path
 
@@ -21,6 +21,7 @@ module Sprites
       @options ||= args.extract_options!
       @path ||= Pathname.wrap(path_for_arguments(@options, *args))
       @stylesheet ||= Stylesheet.new(css_path)
+      @options.delete(@path.to_s)
 
       instance_eval(&blk)
     end
