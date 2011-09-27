@@ -24,7 +24,7 @@ module Sprites
     FIELDS.each do |meth|
       eval <<-EVAL
         def #{meth}(*args)
-          val, _ = *args
+          val, *_ = args
 
           if val
             @#{meth} = val
@@ -38,7 +38,7 @@ module Sprites
 
     alias_method :backend_without_override, :backend
     def backend_with_override(*args)
-      val, _ = *args
+      val, *_ = args
 
       if val
         backend_without_override(val)
@@ -53,7 +53,7 @@ module Sprites
       eval <<-EVAL
         alias_method :#{meth}_without_default, :#{meth}
         def #{meth}_with_default(*args)
-          val, _ = *args
+          val, *_ = args
 
           if val
             #{meth}_without_default(val)
