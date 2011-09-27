@@ -17,7 +17,9 @@ module Sprites
     end
 
     def [](val)
-      @sprite_pieces[val]
+      @sprite_pieces.has_key?(val) ?
+        @sprite_pieces[val] :
+        nil
     end
 
     def add(options)
