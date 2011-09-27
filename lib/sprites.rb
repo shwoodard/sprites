@@ -8,10 +8,6 @@ module Sprites
       @application ||= Application.new(configuration)
     end
 
-    def sprites
-      application.sprites
-    end
-
     def configure(&blk)
       @configuration ||= Configuration.new
       @configuration.configure(&blk) if block_given?
