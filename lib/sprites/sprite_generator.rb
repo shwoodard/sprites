@@ -2,6 +2,7 @@ module Sprites
   class SpriteGenerator
     SPRITE_GENERATORS = {
       :rmagick => RMagickGenerator,
+      :oily_png => ChunkyPngGenerator,
       :chunky_png => ChunkyPngGenerator,
       :mini_magick => MiniMagickGenerator
     }
