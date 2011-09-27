@@ -45,13 +45,11 @@ module Sprites
         return self
       end
 
-      backend_without_override && backend_without_override.to_sym ||DEFAULT_IMPLICIT_CONFIGURATIONS['backend']
+      backend_without_override && backend_without_override.to_sym || DEFAULT_IMPLICIT_CONFIGURATIONS['backend']
     end
     alias_method :backend, :backend_with_override
 
-    FIELDS.reject {|f| DEFAULT_EXPLICIT_CONFIGURATIONS.keys.include?(f) }.each do |meth|
-      next if meth == 'backend'
-
+    DEFAULT_IMPLICIT_CONFIGURATIONS.keys.each do |meth|
       eval <<-EVAL
         alias_method :#{meth}_without_default, :#{meth}
         def #{meth}_with_default(*args)
