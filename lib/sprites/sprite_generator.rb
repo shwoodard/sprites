@@ -14,35 +14,36 @@ module Sprites
     end
 
     def self.current(configuration = ::Sprites.configuration)
-      return SPRITE_GENERATORS[configuration.backend].new(configuration) if configuration.backend
+      generator =  SPRITE_GENERATORS[configuration.backend] if configuration.backend
 
-      begin
+      generator = begin
         require 'rmagick'
-        return SPRITE_GENERATORS[:rmagick].new(configuration)
+        SPRITE_GENERATORS[:rmagick]
       rescue LoadError
         begin
           require 'RMagick'
-          return SPRITE_GENERATORS[:rmagick].new(configuration)
+          SPRITE_GENERATORS[:rmagick]
         rescue LoadError
           begin
             require 'oily_png'
-            return SPRITE_GENERATORS[:chunky_png].new(configuration)
+            SPRITE_GENERATORS[:chunky_png]
           rescue LoadError
             begin
               require 'chunky_png'
-              return SPRITE_GENERATORS[:chunky_png].new(configuration)
+              SPRITE_GENERATORS[:chunky_png]
             rescue LoadError
               begin
                 require 'mini_magick'
-                return SPRITE_GENERATORS[:mini_magick].new(configuration)
+                SPRITE_GENERATORS[:mini_magick]
               rescue LoadError
               end
             end
           end
         end
-      end
+      end unless generator
 
-      raise Notifier.no_configured_or_imlicit_backend(false)
+      raise Notifier.no_configured_or_imlicit_backend(false) unless generator
+      generator.new(configuration)
     end
   end
 end
