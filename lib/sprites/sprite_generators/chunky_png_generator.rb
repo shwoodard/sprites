@@ -1,4 +1,6 @@
+require 'sprites/sprite_generator'
+
 module Sprites
-  class ChunkyPngGenerator
+  class ChunkyPngGenerator < SpriteGenerator
   end
 end

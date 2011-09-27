@@ -1,4 +1,6 @@
+require 'sprites/sprite_generator'
+
 module Sprites
-  class RMagickGenerator
+  class RMagickGenerator < SpriteGenerator
   end
 end

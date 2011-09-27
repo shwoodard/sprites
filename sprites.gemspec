@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "sprites"
   s.version     = Sprites::VERSION
   s.authors     = ["Sam Woodard"]
-  s.email       = ["sam.h.woodard@gmail.com"]
+  s.email       = ["sam@activecodebase.com"]
   s.homepage    = ""
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
@@ -20,6 +20,10 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rcov"
+  s.add_development_dependency "rmagick"
+  s.add_development_dependency "oily_png"
+  s.add_development_dependency "mini_magick"
+  
 
   s.add_runtime_dependency "activesupport"
 end

@@ -3,6 +3,12 @@ require 'sprites/application'
 require 'sprites/configuration'
 
 module Sprites
+  autoload :SpriteGenerator, 'sprites/sprite_generator'
+  autoload :RMagickGenerator, 'sprites/sprite_generators/rmagick_generator'
+  autoload :ChunkyPngGenerator, 'sprites/sprite_generators/chunky_png_generator'
+  autoload :MiniMagickGenerator, 'sprites/sprite_generators/mini_magick_generator'
+  
+
   class << self
     def application
       @application ||= Application.new(configuration)

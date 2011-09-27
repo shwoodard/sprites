@@ -7,8 +7,8 @@ describe Configuration do
   end
 
   context "#backend" do
-    it 'should receive the default' do
-      config.backend.should be(:rmagick)
+    it 'should be nil by default' do
+      config.backend.should be(nil)
     end
 
     it 'should set the backend' do

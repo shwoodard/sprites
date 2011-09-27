@@ -1,4 +1,4 @@
 module Sprites
-  class MiniMagickGenerator
+  class MiniMagickGenerator < SpriteGenerator
   end
 end
