@@ -5,7 +5,7 @@ require 'sprites/configuration'
 module Sprites
   class << self
     def application
-      @application ||= Application.new
+      @application ||= Application.new(configuration)
     end
 
     def sprites

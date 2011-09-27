@@ -17,7 +17,8 @@ module Sprites
     # The +new+ class method initializes the class.
     # === Example
     #  sprites = Sprites.new
-    def initialize
+    def initialize(configuration = ::Sprites.configuration)
+      @configuration = configuration
       @sprites = Sprites.new
     end
 
