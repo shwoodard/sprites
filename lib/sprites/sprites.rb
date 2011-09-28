@@ -18,6 +18,10 @@ module Sprites
       @sprites.clear
     end
 
+    def each(&blk)
+      @sprites.values.each(&blk)
+    end
+
     def empty?
       @sprites.empty?
     end
@@ -27,8 +31,14 @@ module Sprites
     end
 
     def add(*args, &blk)
-      name = sprite_name(*args)
-      @sprites[name].define(*args, &blk)
+      if block_given?
+        name = sprite_name(*args)
+        @sprites[name].define(*args, &blk)
+      elsif args.first.is_a?(Sprite)
+        @sprites[args.first.name] = args.first
+      else
+        raise ArgumentError, "You need to supply a block or a Sprites::Sprite"
+      end
     end
 
     private

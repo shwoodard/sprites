@@ -6,7 +6,19 @@ require 'sprites/stylesheet'
 
 module Sprites
   class Sprite
+    class InvalidOrientation < StandardError; end
+    module Orientations
+      VERTICAL = 1
+      HORIZONTAL = 2
+    end
+
     extend Forwardable
+
+    OPTIONS = %w{orientation}
+
+    DEFAULT_OPTIONS = {
+      'orientation' => Orientations::VERTICAL
+    }
 
     attr_reader :name, :path, :sprite_pieces, :stylesheet
 
@@ -15,19 +27,35 @@ module Sprites
     def initialize(name)
       @name = name
       @sprite_pieces = SpritePieces.new
+      @options = DEFAULT_OPTIONS.dup
+      set_options
     end
 
     def define(*args, &blk)
-      @options ||= args.extract_options!
+      @options = @options.merge args.extract_options!
       @path ||= Pathname.wrap(path_for_arguments(@options, *args))
       @stylesheet ||= Stylesheet.new(css_path)
       @options.delete(@path.to_s)
+      set_options
 
       instance_eval(&blk)
     end
 
     def sprite_piece(options)
       @sprite_pieces.add(options)
+    end
+
+    def orientation(*args)
+      val, *_ = args
+      if val
+        unless [Orientations::VERTICAL, Orientations::HORIZONTAL].include?(val)
+          raise InvalidOrientation
+        end
+        @orientation = val
+        return self
+      end
+
+      @orientation
     end
 
     private
@@ -51,5 +79,10 @@ module Sprites
         path
       end
     end
+  end
+
+  def set_options
+    return unless @options
+    @options.each {|k,v| send(k,v)}
   end
 end

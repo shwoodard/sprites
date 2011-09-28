@@ -32,6 +32,12 @@ describe Sprites do
         @sprites[:foo].should be_a(Sprite)
       end
     end
+
+    it 'should add the sprite if passed in a Sprites::Sprite' do
+      sprite = Sprite.new(:"foo") {}
+      @sprites.add(sprite)
+      @sprites[:foo].should be(sprite)
+    end
   end
 
   context '#clear' do
@@ -69,6 +75,25 @@ describe Sprites do
       @sprites.count.should be(1)
       @sprites.add(:bar) {}
       @sprites.count.should be(2)
+    end
+  end
+
+  context "#each" do
+    it 'should iterate through the sprites' do
+      sprites = Set.new
+      test_sprites = Set.new
+
+      4.times do |i|
+        sprite = Sprite.new(:"foo#{i}") {}
+        sprites << sprite
+        @sprites.add(sprite)
+      end
+
+      @sprites.each do |sprite|
+        test_sprites << sprite
+      end
+
+      sprites.should == test_sprites
     end
   end
   

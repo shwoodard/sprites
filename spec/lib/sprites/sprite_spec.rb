@@ -21,8 +21,8 @@ describe Sprite do
 
   context "#define", "a method to further initialize the Sprite, e.g. with spite pieces" do
     shared_examples "a sprite definition with no options" do
-      it 'the options should be empty' do
-        @sprite.instance_variable_get(:@options).should be_empty
+      it 'the options should be a hash' do
+        @sprite.instance_variable_get(:@options).should be_a(Hash)
       end
 
       it 'should set the path' do
@@ -97,6 +97,17 @@ describe Sprite do
     it 'should return the stylesheet path' do
       @sprite.define(:foo) {}
       @sprite.stylesheet_path.to_s.should == 'sprites/foo.css'
+    end
+  end
+
+  context '#orientation' do
+    it 'should set the orientation' do
+      @sprite.orientation(Sprite::Orientations::HORIZONTAL)
+      @sprite.orientation.should be(Sprite::Orientations::HORIZONTAL)
+    end
+
+    it 'should set and return the default orientation' do
+      @sprite.orientation.should be(Sprite::Orientations::VERTICAL)
     end
   end
 end
