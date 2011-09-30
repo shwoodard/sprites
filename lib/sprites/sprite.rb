@@ -13,8 +13,6 @@ module Sprites
       HORIZONTAL = 2
     end
 
-    extend Forwardable
-
     OPTIONS = [:orientation]
 
     DEFAULT_OPTIONS = {
@@ -22,8 +20,6 @@ module Sprites
     }
 
     attr_reader :name, :sprite_pieces
-
-    def_delegator :@stylesheet, :stylesheet_path
 
     def initialize(name)
       @name = name
@@ -34,7 +30,7 @@ module Sprites
 
     def define(*args, &blk)
       @options = @options.merge args.extract_options!
-      path(@options, *args)
+      @path ||= Pathname.wrap(path_for_arguments(@options, *args))
       @stylesheet ||= Stylesheet.new(css_path)
       @options.delete(@path.to_s)
       set_options
@@ -42,13 +38,27 @@ module Sprites
       instance_eval(&blk) if block_given?
     end
 
+    def define!
+      define unless is_defined?
+    end
+
     def is_defined?
       !@stylesheet.nil?
     end
 
+    def path
+      define!
+      @path
+    end
+
     def stylesheet
-      define unless is_defined?
+      define!
       @stylesheet
+    end
+
+    def stylesheet_path
+      define!
+      @stylesheet.path
     end
 
     def sprite_piece(options)
@@ -66,10 +76,6 @@ module Sprites
       end
 
       @orientation
-    end
-
-    def path(options = @options, *args)
-      @path ||= Pathname.wrap(path_for_arguments(options, *args))
     end
 
     def self.sprite_full_path(configuration, sprite)
