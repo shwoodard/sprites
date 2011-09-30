@@ -101,6 +101,6 @@ module Sprites
 
   def set_options
     return unless @options
-    @options.each {|k,v| send(k,v)}
+    @options.each {|k,v| send(k,v) if Sprite::OPTIONS.include?(k) }
   end
 end
