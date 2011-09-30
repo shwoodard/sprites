@@ -22,6 +22,14 @@ module Sprites
         nil
     end
 
+    def element_at(index)
+      @sprite_pieces.values[index]
+    end
+
+    def map(*args, &blk)
+      @sprite_pieces.values.map(*args, &blk)
+    end
+
     def add(options)
       path, css_selector = options.find {|k,v| k.is_a?(String)}
       @sprite_pieces[path].css_selector = css_selector

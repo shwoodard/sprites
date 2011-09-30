@@ -37,10 +37,10 @@ module Sprites
         
         orientation = sprite.orientation
         sprite_pieces = sprite.sprite_pieces
-        # 
-        # begin
+        
+        begin
         #   $stdout << "Gathering sprite details..." if verbose
-        #   image_list, width, height = set_sprite_details_and_return_image_list(sprite, sprite_path, sprite_pieces, orientation)
+          image_list, width, height = create_image_list(sprite, sprite_path, sprite_pieces, orientation)
         #   $stdout << "done.\n" if verbose
         # 
         #   if ENV['DEBUG']
@@ -55,19 +55,18 @@ module Sprites
         #   $stdout << "done.\n" if verbose
         # 
         #   $stdout << "Beginning sprite generation using #{runner_name.humanize}.\n" if verbose
-        #   create_sprite(sprite, sprite_path, sprite_pieces, image_list, width, height, orientation, verbose)
+          create_sprite(sprite, sprite_path, sprite_pieces, image_list, width, height, orientation, false)
         #   $stdout << "Success!\n" if verbose
         # 
-        #   sprite_file_path = File.join(@railtie.config.paths.public.to_a.first, sprite_path)
         #   $stdout << "Writing sprite to #{sprite_file_path} ... " if verbose
-        #   write sprite_file_path, sprite.quality
+          write sprite_path
         #   $stdout << "done.\n" if verbose
         # 
         #   $stdout << "Finished #{sprite.path} in #{Time.now - t_sprite} seconds.\n" if verbose
         #   $stdout << "=================================================\n\n" if verbose
-        # ensure
-        #   finish
-        # end
+        ensure
+          finish
+        end
       end
 
       # $stdout << "#{Time.now}: ActiveSprites \"I finished my run in #{Time.now - t} seconds.\"\n" if verbose
@@ -104,6 +103,12 @@ module Sprites
 
       raise Notifier.no_configured_or_imlicit_backend(false) unless generator
       generator.new(configuration)
+    end
+
+    private
+    
+    def create_image_list(sprite, sprite_path, sprite_pieces, orientation)
+      raise NoMethodError
     end
   end
 end

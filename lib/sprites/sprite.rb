@@ -14,10 +14,10 @@ module Sprites
 
     extend Forwardable
 
-    OPTIONS = %w{orientation}
+    OPTIONS = [:orientation]
 
     DEFAULT_OPTIONS = {
-      'orientation' => Orientations::VERTICAL
+      :orientation => Orientations::VERTICAL
     }
 
     attr_reader :name, :path, :sprite_pieces, :stylesheet

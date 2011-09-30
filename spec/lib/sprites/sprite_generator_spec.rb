@@ -20,12 +20,19 @@ describe SpriteGenerator do
   context '#generate' do
     it 'should generate a sprite' do
       config = Configuration.new
-      config.images_path('tmp/images').stylesheets_path('tmp/stylesheets')
+
+      config.images_path('tmp/images')
+      config.stylesheets_path('tmp/stylesheets')
+      config.sprite_pieces_path('spec/images/sprite_images')
+
       sprites = Sprites::Sprites.new
+
       sprites.add(:foo) do
         sprite_piece 'foo/foo.png' => '.foo'
       end
+
       SpriteGenerator.current(config).generate(sprites)
+
       Pathname.new('tmp/images/sprites/foo.png').should exist
     end
   end

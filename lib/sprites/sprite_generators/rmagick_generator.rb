@@ -13,25 +13,20 @@ module Sprites
 
     private
 
-    def set_sprite_details_and_return_image_list(sprite, sprite_path, sprite_pieces, orientation)
-      sprite_piece_paths = sprite_pieces.map do |sp|
-        path = image_computed_full_path(sp.path)
-        file_exists!(path)
-        path
-      end
+    def create_image_list(sprite, sprite_path, sprite_pieces, orientation)
+      sprite_piece_paths = sprite_pieces.map {|sp| File.join(@configuration.sprite_pieces_path, sp.path)}
       image_list = ImageList.new(*sprite_piece_paths)
 
       offset = 0
 
       image_list.each_with_index do |image, i|
-        sprite_pieces[i].details = SpritePiece::Details.new(
-          sprite_url(sprite, sprite_path),
-          orientation == Sprite::Orientation::VERTICAL ? 0 : offset,
-          orientation == Sprite::Orientation::VERTICAL ? offset : 0,
+        sprite_pieces.element_at(i).info = SpritePiece::Info.new(
+          orientation == Sprite::Orientations::VERTICAL ? 0 : offset,
+          orientation == Sprite::Orientations::VERTICAL ? offset : 0,
           image.columns,
           image.rows
         )
-        offset += orientation == Sprite::Orientation::VERTICAL ? image.rows : image.columns
+        offset += orientation == Sprite::Orientations::VERTICAL ? image.rows : image.columns
       end
 
       [image_list]
@@ -39,23 +34,24 @@ module Sprites
 
     def create_sprite(sprite, sprite_path, sprite_pieces, image_list, width, height, orientation, verbose)
       @sprite = image_list.montage do
-        self.tile = orientation == Sprite::Orientation::VERTICAL ? "1x#{sprite_pieces.size}" : "#{sprite_pieces.size}x1"
+        self.tile = orientation == Sprite::Orientations::VERTICAL ? "1x#{sprite_pieces.count}" : "#{sprite_pieces.count}x1"
         self.geometry = "+0+0"
         self.background_color = 'transparent'
-        self.matte_color = sprite.matte_color || '#bdbdbd'
+        # TODO support matte_color defined by sprite
+        self.matte_color = '#bdbdbd'
       end
-
-      image_list.size.times { $stdout << '.' } if verbose
-      $stdout << "\n" if verbose
+    
+      # image_list.size.times { $stdout << '.' } if verbose
+      # $stdout << "\n" if verbose
     end
-
-    def write(path, quality = nil)
+    # 
+    def write(path)
       FileUtils.mkdir_p(File.dirname(path))
       @sprite.write("#{File.extname(path)[1..-1]}:#{path}") do
-        self.quality = quality || 75
+        self.quality = 75
       end
     end
-
+    
     def finish
       if @sprite
         @sprite.strip!
