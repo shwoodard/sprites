@@ -110,4 +110,13 @@ describe Sprite do
       @sprite.orientation.should be(Sprite::Orientations::VERTICAL)
     end
   end
+
+  context "self.sprite_full_path(configuration, sprite)" do
+    config = Configuration.new
+    config.images_path('tmp/images')
+
+    sprite = Sprite.new(:foo)
+
+    Sprite.sprite_full_path(config, sprite).should == 'tmp/images/sprites/foo.png'
+  end
 end

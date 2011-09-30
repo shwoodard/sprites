@@ -10,8 +10,8 @@ module Sprites
 
     include Magick
 
-    def initialize(sprite, stylesheet)
-      @sprite, @stylesheet = sprite, stylesheet
+    def initialize(sprite, stylesheet, configuration = nil)
+      @sprite, @stylesheet, @configuration = sprite, stylesheet, configuration
     end
 
     def test_generate
