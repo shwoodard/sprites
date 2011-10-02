@@ -29,5 +29,4 @@ describe SpritePieces do
       @sprite_pieces.element_at(1).selector.should == 'bar.css'
     end
   end
-
 end

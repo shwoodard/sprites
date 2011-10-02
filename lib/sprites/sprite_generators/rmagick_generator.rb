@@ -20,12 +20,11 @@ module Sprites
       offset = 0
 
       image_list.each_with_index do |image, i|
-        sprite_pieces.element_at(i).info = SpritePiece::Info.new(
-          orientation == Sprite::Orientations::VERTICAL ? 0 : offset,
-          orientation == Sprite::Orientations::VERTICAL ? offset : 0,
-          image.columns,
-          image.rows
-        )
+        sp = sprite_pieces.element_at(i)
+        sp.x = orientation == Sprite::Orientations::VERTICAL ? 0 : offset
+        sp.y = orientation == Sprite::Orientations::VERTICAL ? offset : 0
+        sp.width = image.columns
+        sp.height = image.rows
         offset += orientation == Sprite::Orientations::VERTICAL ? image.rows : image.columns
       end
 

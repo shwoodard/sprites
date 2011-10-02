@@ -48,7 +48,8 @@ module Sprites
         #     $stdout << "#{sprite_pieces.map(&:to_s).join("\n")}\n"
         #   end
         # 
-        #   stylesheet = SpriteStylesheet.new(sprite_pieces)
+          stylesheet = sprite.stylesheet(sprite.sprite_pieces, configuration)
+          stylesheet.write Stylesheet.stylesheet_full_path(configuration, stylesheet)
         #   stylesheet_file_path = File.join(@railtie.config.paths.public.to_a.first, sprite_stylesheet_path)
         #   $stdout << "Writing stylesheet to #{stylesheet_file_path} ... " if verbose
         #   stylesheet.write stylesheet_file_path

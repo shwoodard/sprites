@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'pathname'
 require 'sprites/core_ext/pathname'
 require 'active_support/core_ext/array/extract_options'
@@ -36,6 +37,7 @@ module Sprites
       set_options
 
       instance_eval(&blk) if block_given?
+      self
     end
 
     def define!
@@ -56,13 +58,21 @@ module Sprites
       @stylesheet
     end
 
+    def write_stylesheet(configuration, sprite_pieces = @sprite_pieces)
+      path = Stylesheet.stylesheet_full_path(configuration, stylesheet)
+      FileUtils.mkdir_p(File.dirname(path))
+      File.open path, 'w+' do |f|
+        f << stylesheet.css(configuration, self, sprite_pieces)
+      end
+    end
+
     def stylesheet_path
       define!
       @stylesheet.path
     end
 
     def sprite_piece(options)
-      @sprite_pieces.add(options)
+      @sprite_pieces.add(options, self)
     end
 
     def orientation(*args)

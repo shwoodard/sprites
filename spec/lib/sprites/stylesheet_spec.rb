@@ -12,5 +12,13 @@ describe Stylesheet do
       Stylesheet.stylesheet_full_path(config, stylesheet).should == 'tmp/stylesheets/sprites/foo.css'
     end
   end
-  
+
+  context '#sprite_pieces, #sprite_pieces=' do
+    it 'should allow access to and setting of sprite_pieces' do
+      stylesheet = Stylesheet.new('foo/bar.css')
+      sprite_pieces = SpritePieces.new
+      stylesheet.sprite_pieces = sprite_pieces
+      stylesheet.sprite_pieces.should be(sprite_pieces)
+    end
+  end
 end
