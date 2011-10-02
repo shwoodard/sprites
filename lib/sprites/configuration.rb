@@ -1,19 +1,16 @@
 module Sprites
   class Configuration
-    FIELDS = %w{backend images_path stylesheets_path sprites_path sprite_stylesheets_path sprite_pieces_path}
-    DEFAULT_EXPLICIT_CONFIGURATIONS = {
-      'images_path' => 'images',
-      'stylesheets_path' => 'stylesheets'
-    }
+    FIELDS = %w{backend sprites_path sprite_stylesheets_path sprite_pieces_path}
 
-    DEFAULT_IMPLICIT_CONFIGURATIONS = {
+    DEFAULT_CONFIGURATION = {
+      'backend' => :rmagick,
       'sprites_path' => 'images/sprites',
       'sprite_stylesheets_path' => 'stylesheets/sprites',
       'sprite_pieces_path' => 'images/sprite_images'
     }
 
     def initialize
-      DEFAULT_EXPLICIT_CONFIGURATIONS.each {|k,v| self.send(k, v)}
+      DEFAULT_CONFIGURATION.each {|k,v| self.send(k, v)}
     end
 
     def configure(&blk)
@@ -45,25 +42,8 @@ module Sprites
         return self
       end
 
-      backend_without_override && backend_without_override.to_sym || DEFAULT_IMPLICIT_CONFIGURATIONS['backend']
+      backend_without_override && backend_without_override.to_sym
     end
     alias_method :backend, :backend_with_override
-
-    DEFAULT_IMPLICIT_CONFIGURATIONS.keys.each do |meth|
-      eval <<-EVAL
-        alias_method :#{meth}_without_default, :#{meth}
-        def #{meth}_with_default(*args)
-          val, *_ = args
-
-          if val
-            #{meth}_without_default(val)
-            return self
-          end
-
-          #{meth}_without_default || '#{DEFAULT_IMPLICIT_CONFIGURATIONS[meth]}'
-        end
-        alias_method :#{meth}, :#{meth}_with_default
-      EVAL
-    end
   end
 end

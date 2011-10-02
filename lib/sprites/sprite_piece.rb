@@ -9,5 +9,9 @@ module Sprites
     def initialize(path)
       @path = path
     end
+
+    def self.sprite_piece_full_path(configuration, sprite_piece)
+      File.join(configuration.sprite_pieces_path, sprite_piece.path)
+    end
   end
 end

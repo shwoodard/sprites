@@ -8,6 +8,12 @@ module Sprites
       end
     end
 
+    def add(options)
+      path, css_selector = options.find {|k,v| k.is_a?(String)}
+      @sprite_pieces[path].css_selector = css_selector
+      @sprite_pieces[path]
+    end
+
     def count
       @sprite_pieces.size
     end
@@ -30,10 +36,8 @@ module Sprites
       @sprite_pieces.values.map(*args, &blk)
     end
 
-    def add(options)
-      path, css_selector = options.find {|k,v| k.is_a?(String)}
-      @sprite_pieces[path].css_selector = css_selector
-      @sprite_pieces[path]
+    def find(*args, &blk)
+      @sprite_pieces.values.find(*args, &blk)
     end
   end
 end

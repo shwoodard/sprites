@@ -15,7 +15,7 @@ describe Sprite do
   context '#path' do
     it 'should retrieve the path' do
       @sprite.define(:foo) {}
-      @sprite.path.to_s.should == "sprites/foo.png"
+      @sprite.path.to_s.should == "foo.png"
     end
   end
 
@@ -40,7 +40,18 @@ describe Sprite do
         @sprite.define(:foo) {}
       end
 
-      it_behaves_like("a sprite definition with no options")
+      it 'the options should be a hash' do
+        @sprite.instance_variable_get(:@options).should be_a(Hash)
+      end
+
+      it 'should set the path' do
+        @sprite.path.should be_a(Pathname)
+        @sprite.path.to_s.should == 'foo.png'
+      end
+
+      it 'should set the create the Stylesheet' do
+        @sprite.stylesheet.should be_a(Stylesheet)
+      end
     end
 
     context 'when defining with hash but no extra options' do
@@ -96,7 +107,7 @@ describe Sprite do
   context '#stylesheet_path' do
     it 'should return the stylesheet path' do
       @sprite.define(:foo) {}
-      @sprite.stylesheet_path.to_s.should == 'sprites/foo.css'
+      @sprite.stylesheet_path.to_s.should == 'foo.css'
     end
   end
 
@@ -112,11 +123,13 @@ describe Sprite do
   end
 
   context "self.sprite_full_path(configuration, sprite)" do
-    config = Configuration.new
-    config.images_path('tmp/images')
+    it 'should return the sprite full path' do
+      config = Configuration.new
+      config.sprites_path('tmp/images/sprites')
 
-    sprite = Sprite.new(:foo)
+      sprite = Sprite.new(:foo)
 
-    Sprite.sprite_full_path(config, sprite).should == 'tmp/images/sprites/foo.png'
+      Sprite.sprite_full_path(config, sprite).should == 'tmp/images/sprites/foo.png'
+    end
   end
 end

@@ -79,7 +79,7 @@ module Sprites
     end
 
     def self.sprite_full_path(configuration, sprite)
-      File.join(configuration.images_path, sprite.path)
+      File.join(configuration.sprites_path, sprite.path)
     end
 
     private
@@ -94,7 +94,7 @@ module Sprites
 
     def path_for_arguments(options, *args)
       if args.first.is_a?(Symbol) || (args.empty? && !paths_for_options(options).try(:first))
-        "sprites/#{args.first || @name}.png"
+        "#{args.first || @name}.png"
       elsif args.first.is_a?(String)
         args.first
       else

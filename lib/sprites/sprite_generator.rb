@@ -32,8 +32,8 @@ module Sprites
         # end
         # 
 
-        sprite_path = File.join(configuration.images_path, sprite.path)
-        sprite_stylesheet_path = File.join(configuration.stylesheets_path, sprite.stylesheet_path)
+        sprite_path = File.join(configuration.sprites_path, sprite.path)
+        sprite_stylesheet_path = File.join(configuration.sprite_stylesheets_path, sprite.stylesheet_path)
         
         orientation = sprite.orientation
         sprite_pieces = sprite.sprite_pieces

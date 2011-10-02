@@ -1,0 +1,1127 @@
+a.black.wf_button > span, button.black.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px 0px;
+  display:block;
+}
+
+a.black.wf_button, button.black.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -28px;
+  display:block;
+}
+
+a.black.wf_button:hover > span, button.black.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -56px;
+  display:block;
+}
+
+a.black.wf_button:hover, button.black.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -84px;
+  display:block;
+}
+
+a.black.wf_button:active > span, button.black.wf_submit:active span, a.black.wf_button.active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -112px;
+  display:block;
+}
+
+a.black.wf_button:active, button.black.wf_submit:active, a.black.wf_button.active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -140px;
+  display:block;
+}
+
+a.green.wf_button > span, button.green.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -168px;
+  display:block;
+}
+
+a.green.wf_button, button.green.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -196px;
+  display:block;
+}
+
+a.green.wf_button:hover > span, button.green.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -224px;
+  display:block;
+}
+
+a.green.wf_button:hover, button.green.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -252px;
+  display:block;
+}
+
+a.green.wf_button:active > span, button.green.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -280px;
+  display:block;
+}
+
+a.green.wf_button:active, button.green.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -308px;
+  display:block;
+}
+
+a.right_edge.green.wf_button, button.right_edge.green.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -336px;
+  display:block;
+}
+
+a.right_edge.green.wf_button:hover button.right_edge.green.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -364px;
+  display:block;
+}
+
+a.right_edge.green.wf_button:active, button.right_edge.green.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -392px;
+  display:block;
+}
+
+a.green.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -420px;
+  display:block;
+}
+
+a.green.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -448px;
+  display:block;
+}
+
+a.green.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -476px;
+  display:block;
+}
+
+a.tall.black.wf_button > span, button.tall.black.wf_submit span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -504px;
+  display:block;
+}
+
+a.tall.black.wf_button, button.tall.black.wf_submit, a.black.back_arrow.wf_button
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -537px;
+  display:block;
+}
+
+a.tall.black.wf_button:hover > span, button.tall.black.wf_submit:hover span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -570px;
+  display:block;
+}
+
+a.tall.black.wf_button:hover, button.tall.black.wf_submit:hover, a.black.back_arrow.wf_button:hover
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -603px;
+  display:block;
+}
+
+a.tall.black.wf_button:active > span, button.tall.black.wf_submit:active span, a.black.tall.wf_button.active span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -636px;
+  display:block;
+}
+
+a.tall.black.wf_button:active, button.tall.black.wf_submit:active, a.black.back_arrow.wf_button:active, a.black.tall.wf_button.active
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -669px;
+  display:block;
+}
+
+a.red.wf_button > span, button.red.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -702px;
+  display:block;
+}
+
+a.red.wf_button, button.red.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -730px;
+  display:block;
+}
+
+a.red.wf_button:hover > span, button.red.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -758px;
+  display:block;
+}
+
+a.red.wf_button:hover, button.red.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -786px;
+  display:block;
+}
+
+a.red.wf_button:active > span, button.red.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -814px;
+  display:block;
+}
+
+a.red.wf_button:active, button.red.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -842px;
+  display:block;
+}
+
+a.yellow.wf_button > span, button.yellow.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -870px;
+  display:block;
+}
+
+a.yellow.wf_button, button.yellow.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -898px;
+  display:block;
+}
+
+a.yellow.wf_button:hover > span, button.yellow.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -926px;
+  display:block;
+}
+
+a.yellow.wf_button:hover, button.yellow.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -954px;
+  display:block;
+}
+
+a.yellow.wf_button:active > span, button.yellow.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -982px;
+  display:block;
+}
+
+a.yellow.wf_button:active, button.yellow.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1010px;
+  display:block;
+}
+
+a.white.wf_button > span, button.white.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1038px;
+  display:block;
+}
+
+a.white.wf_button, button.white.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1066px;
+  display:block;
+}
+
+a.white.wf_button:hover > span, button.white.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1094px;
+  display:block;
+}
+
+a.white.wf_button:hover, button.white.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1122px;
+  display:block;
+}
+
+a.white.wf_button:active > span, button.white.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1150px;
+  display:block;
+}
+
+a.white.wf_button:active, button.white.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1178px;
+  display:block;
+}
+
+a.trans.wf_button > span, button.trans.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1206px;
+  display:block;
+}
+
+a.trans.wf_button, button.trans.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1234px;
+  display:block;
+}
+
+a.trans.wf_button:hover > span, button.trans.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1262px;
+  display:block;
+}
+
+a.trans.wf_button:hover, button.trans.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1290px;
+  display:block;
+}
+
+a.trans.wf_button:active > span, button.trans.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1318px;
+  display:block;
+}
+
+a.trans.wf_button:active, button.trans.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1346px;
+  display:block;
+}
+
+a.blue.wf_button > span, button.blue.wf_submit span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1374px;
+  display:block;
+}
+
+a.blue.wf_button, button.blue.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1402px;
+  display:block;
+}
+
+a.blue.wf_button:hover > span, button.blue.wf_submit:hover span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1430px;
+  display:block;
+}
+
+a.blue.wf_button:hover, button.blue.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1458px;
+  display:block;
+}
+
+a.blue.wf_button:active > span, button.blue.wf_submit:active span
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1486px;
+  display:block;
+}
+
+a.blue.wf_button:active, button.blue.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1514px;
+  display:block;
+}
+
+a.right_edge.red.wf_button, button.right_edge.red.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1542px;
+  display:block;
+}
+
+a.right_edge.red.wf_button:hover, button.right_edge.red.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1570px;
+  display:block;
+}
+
+a.right_edge.red.wf_button:active, button.right_edge.red.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1598px;
+  display:block;
+}
+
+a.red.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1626px;
+  display:block;
+}
+
+a.red.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1654px;
+  display:block;
+}
+
+a.red.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1682px;
+  display:block;
+}
+
+a.right_edge.yellow.wf_button, button.right_edge.yellow.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1710px;
+  display:block;
+}
+
+a.right_edge.yellow.wf_button:hover, button.right_edge.yellow.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1738px;
+  display:block;
+}
+
+a.right_edge.yellow.wf_button:active, button.right_edge.yellow.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1766px;
+  display:block;
+}
+
+a.yellow.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1794px;
+  display:block;
+}
+
+a.yellow.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1822px;
+  display:block;
+}
+
+a.yellow.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1850px;
+  display:block;
+}
+
+a.right_edge.blue.wf_button, button.right_edge.blue.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1878px;
+  display:block;
+}
+
+a.right_edge.blue.wf_button:hover, button.right_edge.blue.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1906px;
+  display:block;
+}
+
+a.right_edge.blue.wf_button:active, button.right_edge.blue.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1934px;
+  display:block;
+}
+
+a.blue.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1962px;
+  display:block;
+}
+
+a.blue.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -1990px;
+  display:block;
+}
+
+a.blue.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2018px;
+  display:block;
+}
+
+a.right_edge.white.wf_button, button.right_edge.white.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2046px;
+  display:block;
+}
+
+a.right_edge.white.wf_button:hover, button.right_edge.white.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2074px;
+  display:block;
+}
+
+a.right_edge.white.wf_button:active, button.right_edge.white.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2102px;
+  display:block;
+}
+
+a.white.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2130px;
+  display:block;
+}
+
+a.white.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2158px;
+  display:block;
+}
+
+a.white.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2186px;
+  display:block;
+}
+
+a.right_edge.trans.wf_button, button.right_edge.trans.wf_submit
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2214px;
+  display:block;
+}
+
+a.right_edge.trans.wf_button:hover, button.right_edge.trans.wf_submit:hover
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2242px;
+  display:block;
+}
+
+a.right_edge.trans.wf_button:active, button.right_edge.trans.wf_submit:active
+{
+  width:300px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2270px;
+  display:block;
+}
+
+a.trans.wf_menu_button
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2298px;
+  display:block;
+}
+
+a.trans.wf_menu_button:hover
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2326px;
+  display:block;
+}
+
+a.trans.wf_menu_button:active
+{
+  width:20px;
+  height:28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2354px;
+  display:block;
+}
+
+a.black.back_arrow.wf_button > span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2382px;
+  display:block;
+}
+
+a.black.back_arrow.wf_button:hover > span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2415px;
+  display:block;
+}
+
+a.black.back_arrow.wf_button:active > span
+{
+  width:300px;
+  height:33px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2448px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button > span, button.blue.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2481px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button, button.blue.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2508px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button:hover > span, button.blue.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2535px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button:hover, button.blue.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2562px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button:active > span, button.blue.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2589px;
+  display:block;
+}
+
+a.blue.dark_background.wf_button:active, button.blue.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2616px;
+  display:block;
+}
+
+a.red.dark_background.wf_button > span, button.red.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2643px;
+  display:block;
+}
+
+a.red.dark_background.wf_button, button.red.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2670px;
+  display:block;
+}
+
+a.red.dark_background.wf_button:hover > span, button.red.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2697px;
+  display:block;
+}
+
+a.red.dark_background.wf_button:hover, button.red.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2724px;
+  display:block;
+}
+
+a.red.dark_background.wf_button:active > span, button.red.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2751px;
+  display:block;
+}
+
+a.red.dark_background.wf_button:active, button.red.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2778px;
+  display:block;
+}
+
+a.white.dark_background.wf_button > span, button.white.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2805px;
+  display:block;
+}
+
+a.white.dark_background.wf_button, button.white.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2832px;
+  display:block;
+}
+
+a.white.dark_background.wf_button:hover > span, button.white.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2859px;
+  display:block;
+}
+
+a.white.dark_background.wf_button:hover, button.white.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2886px;
+  display:block;
+}
+
+a.white.dark_background.wf_button:active > span, button.white.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2913px;
+  display:block;
+}
+
+a.white.dark_background.wf_button:active, button.white.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2940px;
+  display:block;
+}
+
+a.green.dark_background.wf_button > span, button.green.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -2967px;
+  display:block;
+}
+
+a.green.dark_background.wf_button, button.green.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2994px;
+  display:block;
+}
+
+a.green.dark_background.wf_button:hover > span, button.green.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3021px;
+  display:block;
+}
+
+a.green.dark_background.wf_button:hover, button.green.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3048px;
+  display:block;
+}
+
+a.green.dark_background.wf_button:active > span, button.green.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3075px;
+  display:block;
+}
+
+a.green.dark_background.wf_button:active, button.green.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3102px;
+  display:block;
+}
+
+a.right_edge.green.dark_background.wf_button, button.right_edge.green.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3129px;
+  display:block;
+}
+
+a.right_edge.green.dark_background.wf_button:hover button.right_edge.green.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3156px;
+  display:block;
+}
+
+a.right_edge.green.dark_background.wf_button:active, button.right_edge.green.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3183px;
+  display:block;
+}
+
+a.green.dark_background.wf_menu_button
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3210px;
+  display:block;
+}
+
+a.green.dark_background.wf_menu_button:hover
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3237px;
+  display:block;
+}
+
+a.green.dark_background.wf_menu_button:active
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3264px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button > span, button.yellow.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3291px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button, button.yellow.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3318px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button:hover > span, button.yellow.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3345px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button:hover, button.yellow.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3372px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button:active > span, button.yellow.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3399px;
+  display:block;
+}
+
+a.yellow.dark_background.wf_button:active, button.yellow.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3426px;
+  display:block;
+}
+
+a.black.dark_background.wf_button > span, button.black.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3453px;
+  display:block;
+}
+
+a.black.dark_background.wf_button, button.black.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3480px;
+  display:block;
+}
+
+a.black.dark_background.wf_button:hover > span, button.black.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3507px;
+  display:block;
+}
+
+a.black.dark_background.wf_button:hover, button.black.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3534px;
+  display:block;
+}
+
+a.black.dark_background.wf_button:active > span, button.black.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3561px;
+  display:block;
+}
+
+a.black.dark_background.wf_button:active, button.black.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3588px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button > span, button.trans.dark_background.wf_submit span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3615px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button, button.trans.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3642px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button:hover > span, button.trans.dark_background.wf_submit:hover span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3669px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button:hover, button.trans.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3696px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button:active > span, button.trans.dark_background.wf_submit:active span
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3723px;
+  display:block;
+}
+
+a.trans.dark_background.wf_button:active, button.trans.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3750px;
+  display:block;
+}
+
+a.right_edge.trans.dark_background.wf_button, button.right_edge.trans.dark_background.wf_submit
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3777px;
+  display:block;
+}
+
+a.right_edge.trans.dark_background.wf_button:hover, button.right_edge.trans.dark_background.wf_submit:hover
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3804px;
+  display:block;
+}
+
+a.right_edge.trans.dark_background.wf_button:active, button.right_edge.trans.dark_background.wf_submit:active
+{
+  width:300px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3831px;
+  display:block;
+}
+
+a.trans.dark_background.wf_menu_button
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3858px;
+  display:block;
+}
+
+a.trans.dark_background.wf_menu_button:hover
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3885px;
+  display:block;
+}
+
+a.trans.dark_background.wf_menu_button:active
+{
+  width:20px;
+  height:27px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0px -3912px;
+  display:block;
+}

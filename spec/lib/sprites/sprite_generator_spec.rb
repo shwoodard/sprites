@@ -21,8 +21,8 @@ describe SpriteGenerator do
     it 'should generate a sprite' do
       config = Configuration.new
 
-      config.images_path('tmp/images')
-      config.stylesheets_path('tmp/stylesheets')
+      config.sprites_path('tmp/images/sprites')
+      config.sprite_stylesheets_path('tmp/stylesheets/sprites')
       config.sprite_pieces_path('spec/images/sprite_images')
 
       sprites = Sprites::Sprites.new

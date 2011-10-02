@@ -48,7 +48,7 @@ module Sprites
     def write(path)
       FileUtils.mkdir_p(File.dirname(path))
       @sprite.write("#{File.extname(path)[1..-1]}:#{path}") do
-        self.quality = 75
+        self.quality = 100
       end
     end
     
