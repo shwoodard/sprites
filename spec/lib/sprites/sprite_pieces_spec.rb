@@ -4,7 +4,6 @@ require 'sprites/sprite_pieces'
 describe SpritePieces do
 
   before do
-    @sprite = Sprite.new(:foo)
     @sprite_pieces = SpritePieces.new
 
     @sprite_piece_definitions = [
@@ -14,7 +13,7 @@ describe SpritePieces do
     ]
 
     @sprite_piece_definitions.each do |spd|
-      @sprite_pieces.add(spd, @sprite)
+      @sprite_pieces.add(spd)
     end
   end
 

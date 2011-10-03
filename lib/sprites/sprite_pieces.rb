@@ -2,19 +2,15 @@ require 'active_support/ordered_hash'
 
 module Sprites
   class SpritePieces
-    attr_accessor :sprite
-    private :sprite=
-
     def initialize
       @sprite_pieces = ActiveSupport::OrderedHash.new do |sprite_pieces, path|
         sprite_pieces[path] = SpritePiece.new(path)
       end
     end
 
-    def add(options, sprite)
+    def add(options)
       path, css_selector = options.find {|k,v| k.is_a?(String)}
       @sprite_pieces[path].css_selector = css_selector
-      @sprite_pieces[path].sprite = sprite
       @sprite_pieces[path]
     end
 

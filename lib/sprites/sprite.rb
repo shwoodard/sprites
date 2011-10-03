@@ -72,7 +72,7 @@ module Sprites
     end
 
     def sprite_piece(options)
-      @sprite_pieces.add(options, self)
+      @sprite_pieces.add(options)
     end
 
     def orientation(*args)
