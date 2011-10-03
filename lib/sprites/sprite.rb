@@ -92,6 +92,10 @@ module Sprites
       File.join(configuration.sprites_path, sprite.path)
     end
 
+    def self.sprite_css_path(configuration, sprite)
+      "/#{sprite_full_path(configuration, sprite)}"
+    end
+
     private
 
     def css_path
@@ -113,10 +117,10 @@ module Sprites
         path
       end
     end
-  end
 
-  def set_options
-    return unless @options
-    @options.each {|k,v| send(k,v) if Sprite::OPTIONS.include?(k) }
+    def set_options
+      return unless @options
+      @options.each {|k,v| send(k,v) if Sprite::OPTIONS.include?(k) }
+    end
   end
 end

@@ -15,7 +15,7 @@ module Sprites
 
     def css(configuration, sprite, sprite_pieces)
       return unless sprite_pieces.present?
-      sprite_pieces.css(configuration, sprite)
+      sprite_pieces.css(sprite, configuration)
     end
   end
 end

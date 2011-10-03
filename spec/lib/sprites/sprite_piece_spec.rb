@@ -27,13 +27,13 @@ describe SpritePiece do
       sprite_piece.width = 40
       sprite_piece.height = 50
 
-      sprite_piece.css.should == <<-CSS
+      sprite_piece.css(sprite, config).should == <<-CSS
 .foo
 {
   display:block;
   width:40px;
   height:50px;
-  background:url('/tmp/images/sprites/foo.png') no-repeat 0 -345px
+  background:url('/tmp/images/sprites/foo.png') no-repeat 0 -345px;
 }
       CSS
     end

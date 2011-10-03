@@ -1,7 +1,7 @@
 module Sprites
   class SpritePiece
     attr_reader :path
-    attr_accessor :css_selector, :x, :y, :width, :height
+    attr_accessor :sprite, :css_selector, :x, :y, :width, :height
     alias_method :selector, :css_selector
 
     def initialize(path)
@@ -12,16 +12,22 @@ module Sprites
       File.join(configuration.sprite_pieces_path, sprite_piece.path)
     end
 
-    def css(sprite)
+    def css(sprite = @sprite, configuration = ::Sprites.configuration)
       <<-CSS
 #{selector}
 {
   display:block;
   width:#{width}px;
   height:#{height}px;
-  background:url('#{Sprite.sprite_css_path(configuration, sprite)}') no-repeat -#{x} -#{y}
+  background:url('#{Sprite.sprite_css_path(configuration, sprite)}') no-repeat #{negative_pixelize(x)} #{negative_pixelize(y)};
 }
       CSS
+    end
+
+    private
+    def negative_pixelize(val)
+      return "0" if val.to_i == 0
+      "-#{val}px"
     end
   end
 end

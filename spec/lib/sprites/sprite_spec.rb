@@ -132,4 +132,15 @@ describe Sprite do
       Sprite.sprite_full_path(config, sprite).should == 'tmp/images/sprites/foo.png'
     end
   end
+
+  context 'self.sprite_css_path(configuration, sprite)' do
+    it 'should return the path for use in the url in the background style attribute' do
+      config = Configuration.new
+      config.sprites_path('tmp/images/sprites')
+
+      sprite = Sprite.new(:foo)
+
+      Sprite.sprite_css_path(config, sprite).should == '/tmp/images/sprites/foo.png'
+    end
+  end
 end
