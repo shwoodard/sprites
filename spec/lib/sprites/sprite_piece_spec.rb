@@ -27,7 +27,7 @@ describe SpritePiece do
       sprite_piece.width = 40
       sprite_piece.height = 50
 
-      sprite_piece.css(sprite, config).should == <<-CSS
+      sprite_piece.css(config, sprite).should == <<-CSS
 .foo
 {
   display:block;

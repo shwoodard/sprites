@@ -5,17 +5,17 @@ module Sprites
     attr_reader :path
     attr_accessor :sprite_pieces
 
-    def initialize(path)
-      @path = path
+    def initialize(path, sprite)
+      @path, @sprite = path, sprite
     end
 
     def self.stylesheet_full_path(configuration, stylesheet)
       File.join(configuration.sprite_stylesheets_path, stylesheet.path)
     end
 
-    def css(configuration, sprite, sprite_pieces)
+    def css(configuration = Sprites.configuration, sprite = @sprite, sprite_pieces = @sprite_pieces)
       return unless sprite_pieces.present?
-      sprite_pieces.css(sprite, configuration)
+      sprite_pieces.css(configuration, sprite)
     end
   end
 end

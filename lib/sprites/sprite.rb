@@ -32,7 +32,7 @@ module Sprites
     def define(*args, &blk)
       @options = @options.merge args.extract_options!
       @path ||= Pathname.wrap(path_for_arguments(@options, *args))
-      @stylesheet ||= Stylesheet.new(css_path)
+      @stylesheet ||= Stylesheet.new(css_path, self)
       @options.delete(@path.to_s)
       set_options
 

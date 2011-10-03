@@ -12,7 +12,7 @@ module Sprites
       File.join(configuration.sprite_pieces_path, sprite_piece.path)
     end
 
-    def css(sprite = @sprite, configuration = ::Sprites.configuration)
+    def css(configuration = ::Sprites.configuration, sprite = @sprite)
       <<-CSS
 #{selector}
 {

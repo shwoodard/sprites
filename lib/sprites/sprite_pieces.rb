@@ -44,8 +44,8 @@ module Sprites
       @sprite_pieces.values.find(*args, &blk)
     end
 
-    def css(sprite, configuration = ::Sprites.configuration)
-      @sprite_pieces.values.map {|sp| sp.css(sprite, configuration)}.join("\n")
+    def css(configuration = ::Sprites.configuration, sprite = @sprite)
+      @sprite_pieces.values.map {|sp| sp.css(configuration, sprite)}.join("\n")
     end
   end
 end
