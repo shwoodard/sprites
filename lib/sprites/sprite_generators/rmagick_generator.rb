@@ -14,7 +14,7 @@ module Sprites
     private
 
     def create_image_list(sprite, sprite_path, sprite_pieces, orientation)
-      sprite_piece_paths = sprite_pieces.map {|sp| File.join(@configuration.sprite_pieces_path, sp.path)}
+      sprite_piece_paths = sprite_pieces.map {|sp| SpritePiece.sprite_piece_full_path(@configuration, sp)}
       image_list = ImageList.new(*sprite_piece_paths)
 
       offset = 0

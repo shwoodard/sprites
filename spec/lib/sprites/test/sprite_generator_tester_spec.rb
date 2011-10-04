@@ -11,7 +11,7 @@ describe SpriteGeneratorTester do
       end
       define_buttons_sprite
       tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], Sprites.configuration)
-      tester.test_generate.all? {|x| x == 0 }.should be_true
+      tester.should be_accurate
     end
   end
 end

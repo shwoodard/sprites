@@ -19,6 +19,11 @@ module Sprites
       @sprite, @configuration = sprite, configuration
     end
 
+    def accurate?
+      test_generate.all? {|x| x == 0}
+    end
+
+    private
     def test_generate
       orientation = @sprite.orientation
       sprite_pieces = @sprite.sprite_pieces
