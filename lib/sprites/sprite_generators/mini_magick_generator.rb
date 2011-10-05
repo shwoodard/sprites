@@ -9,14 +9,14 @@ module Sprites
       offset = 0
 
       image_list = sprite_pieces.map do |sp|
-        sp_path = SpritePiece.sprite_piece_full_path(@configuration, sprite)
+        sp_path = SpritePiece.sprite_piece_full_path(@configuration, sp)
         image = MiniMagick::Image.open(sp_path)
         sp.x = orientation == Sprite::Orientations::VERTICAL ? 0 : offset
         sp.y = orientation == Sprite::Orientations::VERTICAL ? offset : 0
         sp.width = image["width"]
         sp.height = image["height"]
 
-        offset += orientation == Sprite::Orientations::VERTICAL ? image["width"] : image["height"]
+        offset += orientation == Sprite::Orientations::VERTICAL ? image["height"] : image["width"]
 
         image
       end
@@ -32,7 +32,7 @@ module Sprites
       end
 
       options = {
-        :tile => orientation == Sprite::Orientations::VERTICAL ? "1x#{sprite_pieces.size}" : "#{sprite_pieces.size}x1",
+        :tile => orientation == Sprite::Orientations::VERTICAL ? "1x#{sprite_pieces.count}" : "#{sprite_pieces.count}x1",
         :geometry => "+0+0",
         :background => "transparent",
         :mattecolor => '#bdbdbd'

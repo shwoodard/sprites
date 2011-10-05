@@ -50,9 +50,9 @@ module Sprites
         sprite_pieces_with_selector_data << [sprite_piece, Selector.new(rs.selectors, x, y, width, height)]
       end
 
-      i = 0
       percent_diferences = sprite_pieces_with_selector_data.map do |sp, selector_data|
         begin
+          raise selector_data.inspect if sp.nil?
           sprite_piece_path = ::Sprites.gem_root.join(SpritePiece.sprite_piece_full_path(configuration, sp))
           sprite_piece_image = Image.read(sprite_piece_path).first
           
@@ -62,7 +62,6 @@ module Sprites
             selector_data.width,
             selector_data.height
           )
-          
           diff_iamge, pd = curr_sprite_image.compare_channel(sprite_piece_image, MeanSquaredErrorMetric)
           pd
         ensure

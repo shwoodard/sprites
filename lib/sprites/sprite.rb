@@ -3,6 +3,7 @@ require 'pathname'
 require 'sprites/core_ext/pathname'
 require 'active_support/core_ext/array/extract_options'
 require 'active_support/core_ext/object/try'
+require 'sprites/sprite_pieces'
 require 'sprites/sprite_piece'
 require 'sprites/stylesheet'
 

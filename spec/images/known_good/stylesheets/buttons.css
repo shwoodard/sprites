@@ -10,7 +10,7 @@ a.black.wf_button, button.black.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -28px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -28px;
   display:block;
 }
 
@@ -26,7 +26,7 @@ a.black.wf_button:hover, button.black.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -84px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -84px;
   display:block;
 }
 
@@ -42,7 +42,7 @@ a.black.wf_button:active, button.black.wf_submit:active, a.black.wf_button.activ
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -140px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -140px;
   display:block;
 }
 
@@ -58,7 +58,7 @@ a.green.wf_button, button.green.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -196px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -196px;
   display:block;
 }
 
@@ -74,7 +74,7 @@ a.green.wf_button:hover, button.green.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -252px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -252px;
   display:block;
 }
 
@@ -90,7 +90,7 @@ a.green.wf_button:active, button.green.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -308px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -308px;
   display:block;
 }
 
@@ -98,7 +98,7 @@ a.right_edge.green.wf_button, button.right_edge.green.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -336px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -336px;
   display:block;
 }
 
@@ -106,7 +106,7 @@ a.right_edge.green.wf_button:hover button.right_edge.green.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -364px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -364px;
   display:block;
 }
 
@@ -114,7 +114,7 @@ a.right_edge.green.wf_button:active, button.right_edge.green.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -392px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -392px;
   display:block;
 }
 
@@ -154,7 +154,7 @@ a.tall.black.wf_button, button.tall.black.wf_submit, a.black.back_arrow.wf_butto
 {
   width:300px;
   height:33px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -537px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -537px;
   display:block;
 }
 
@@ -170,7 +170,7 @@ a.tall.black.wf_button:hover, button.tall.black.wf_submit:hover, a.black.back_ar
 {
   width:300px;
   height:33px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -603px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -603px;
   display:block;
 }
 
@@ -186,7 +186,7 @@ a.tall.black.wf_button:active, button.tall.black.wf_submit:active, a.black.back_
 {
   width:300px;
   height:33px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -669px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -669px;
   display:block;
 }
 
@@ -202,7 +202,7 @@ a.red.wf_button, button.red.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -730px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -730px;
   display:block;
 }
 
@@ -218,7 +218,7 @@ a.red.wf_button:hover, button.red.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -786px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -786px;
   display:block;
 }
 
@@ -234,7 +234,7 @@ a.red.wf_button:active, button.red.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -842px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -842px;
   display:block;
 }
 
@@ -250,7 +250,7 @@ a.yellow.wf_button, button.yellow.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -898px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -898px;
   display:block;
 }
 
@@ -266,7 +266,7 @@ a.yellow.wf_button:hover, button.yellow.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -954px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -954px;
   display:block;
 }
 
@@ -282,7 +282,7 @@ a.yellow.wf_button:active, button.yellow.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1010px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1010px;
   display:block;
 }
 
@@ -298,7 +298,7 @@ a.white.wf_button, button.white.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1066px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1066px;
   display:block;
 }
 
@@ -314,7 +314,7 @@ a.white.wf_button:hover, button.white.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1122px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1122px;
   display:block;
 }
 
@@ -330,7 +330,7 @@ a.white.wf_button:active, button.white.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1178px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1178px;
   display:block;
 }
 
@@ -346,7 +346,7 @@ a.trans.wf_button, button.trans.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1234px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1234px;
   display:block;
 }
 
@@ -362,7 +362,7 @@ a.trans.wf_button:hover, button.trans.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1290px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1290px;
   display:block;
 }
 
@@ -378,7 +378,7 @@ a.trans.wf_button:active, button.trans.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1346px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1346px;
   display:block;
 }
 
@@ -394,7 +394,7 @@ a.blue.wf_button, button.blue.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1402px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1402px;
   display:block;
 }
 
@@ -410,7 +410,7 @@ a.blue.wf_button:hover, button.blue.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1458px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1458px;
   display:block;
 }
 
@@ -426,7 +426,7 @@ a.blue.wf_button:active, button.blue.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1514px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1514px;
   display:block;
 }
 
@@ -434,7 +434,7 @@ a.right_edge.red.wf_button, button.right_edge.red.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1542px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1542px;
   display:block;
 }
 
@@ -442,7 +442,7 @@ a.right_edge.red.wf_button:hover, button.right_edge.red.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1570px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1570px;
   display:block;
 }
 
@@ -450,7 +450,7 @@ a.right_edge.red.wf_button:active, button.right_edge.red.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1598px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1598px;
   display:block;
 }
 
@@ -482,7 +482,7 @@ a.right_edge.yellow.wf_button, button.right_edge.yellow.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1710px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1710px;
   display:block;
 }
 
@@ -490,7 +490,7 @@ a.right_edge.yellow.wf_button:hover, button.right_edge.yellow.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1738px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1738px;
   display:block;
 }
 
@@ -498,7 +498,7 @@ a.right_edge.yellow.wf_button:active, button.right_edge.yellow.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1766px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1766px;
   display:block;
 }
 
@@ -530,7 +530,7 @@ a.right_edge.blue.wf_button, button.right_edge.blue.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1878px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1878px;
   display:block;
 }
 
@@ -538,7 +538,7 @@ a.right_edge.blue.wf_button:hover, button.right_edge.blue.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1906px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1906px;
   display:block;
 }
 
@@ -546,7 +546,7 @@ a.right_edge.blue.wf_button:active, button.right_edge.blue.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -1934px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -1934px;
   display:block;
 }
 
@@ -578,7 +578,7 @@ a.right_edge.white.wf_button, button.right_edge.white.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2046px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2046px;
   display:block;
 }
 
@@ -586,7 +586,7 @@ a.right_edge.white.wf_button:hover, button.right_edge.white.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2074px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2074px;
   display:block;
 }
 
@@ -594,7 +594,7 @@ a.right_edge.white.wf_button:active, button.right_edge.white.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2102px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2102px;
   display:block;
 }
 
@@ -626,7 +626,7 @@ a.right_edge.trans.wf_button, button.right_edge.trans.wf_submit
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2214px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2214px;
   display:block;
 }
 
@@ -634,7 +634,7 @@ a.right_edge.trans.wf_button:hover, button.right_edge.trans.wf_submit:hover
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2242px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2242px;
   display:block;
 }
 
@@ -642,7 +642,7 @@ a.right_edge.trans.wf_button:active, button.right_edge.trans.wf_submit:active
 {
   width:300px;
   height:28px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2270px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2270px;
   display:block;
 }
 
@@ -706,7 +706,7 @@ a.blue.dark_background.wf_button, button.blue.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2508px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2508px;
   display:block;
 }
 
@@ -722,7 +722,7 @@ a.blue.dark_background.wf_button:hover, button.blue.dark_background.wf_submit:ho
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2562px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2562px;
   display:block;
 }
 
@@ -738,7 +738,7 @@ a.blue.dark_background.wf_button:active, button.blue.dark_background.wf_submit:a
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2616px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2616px;
   display:block;
 }
 
@@ -754,7 +754,7 @@ a.red.dark_background.wf_button, button.red.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2670px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2670px;
   display:block;
 }
 
@@ -770,7 +770,7 @@ a.red.dark_background.wf_button:hover, button.red.dark_background.wf_submit:hove
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2724px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2724px;
   display:block;
 }
 
@@ -786,7 +786,7 @@ a.red.dark_background.wf_button:active, button.red.dark_background.wf_submit:act
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2778px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2778px;
   display:block;
 }
 
@@ -802,7 +802,7 @@ a.white.dark_background.wf_button, button.white.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2832px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2832px;
   display:block;
 }
 
@@ -818,7 +818,7 @@ a.white.dark_background.wf_button:hover, button.white.dark_background.wf_submit:
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2886px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2886px;
   display:block;
 }
 
@@ -834,7 +834,7 @@ a.white.dark_background.wf_button:active, button.white.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2940px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2940px;
   display:block;
 }
 
@@ -850,7 +850,7 @@ a.green.dark_background.wf_button, button.green.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -2994px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -2994px;
   display:block;
 }
 
@@ -866,7 +866,7 @@ a.green.dark_background.wf_button:hover, button.green.dark_background.wf_submit:
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3048px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3048px;
   display:block;
 }
 
@@ -882,7 +882,7 @@ a.green.dark_background.wf_button:active, button.green.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3102px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3102px;
   display:block;
 }
 
@@ -890,7 +890,7 @@ a.right_edge.green.dark_background.wf_button, button.right_edge.green.dark_backg
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3129px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3129px;
   display:block;
 }
 
@@ -898,7 +898,7 @@ a.right_edge.green.dark_background.wf_button:hover button.right_edge.green.dark_
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3156px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3156px;
   display:block;
 }
 
@@ -906,7 +906,7 @@ a.right_edge.green.dark_background.wf_button:active, button.right_edge.green.dar
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3183px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3183px;
   display:block;
 }
 
@@ -946,7 +946,7 @@ a.yellow.dark_background.wf_button, button.yellow.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3318px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3318px;
   display:block;
 }
 
@@ -962,7 +962,7 @@ a.yellow.dark_background.wf_button:hover, button.yellow.dark_background.wf_submi
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3372px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3372px;
   display:block;
 }
 
@@ -978,7 +978,7 @@ a.yellow.dark_background.wf_button:active, button.yellow.dark_background.wf_subm
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3426px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3426px;
   display:block;
 }
 
@@ -994,7 +994,7 @@ a.black.dark_background.wf_button, button.black.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3480px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3480px;
   display:block;
 }
 
@@ -1010,7 +1010,7 @@ a.black.dark_background.wf_button:hover, button.black.dark_background.wf_submit:
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3534px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3534px;
   display:block;
 }
 
@@ -1026,7 +1026,7 @@ a.black.dark_background.wf_button:active, button.black.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3588px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3588px;
   display:block;
 }
 
@@ -1042,7 +1042,7 @@ a.trans.dark_background.wf_button, button.trans.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3642px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3642px;
   display:block;
 }
 
@@ -1058,7 +1058,7 @@ a.trans.dark_background.wf_button:hover, button.trans.dark_background.wf_submit:
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3696px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3696px;
   display:block;
 }
 
@@ -1074,7 +1074,7 @@ a.trans.dark_background.wf_button:active, button.trans.dark_background.wf_submit
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3750px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3750px;
   display:block;
 }
 
@@ -1082,7 +1082,7 @@ a.right_edge.trans.dark_background.wf_button, button.right_edge.trans.dark_backg
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3777px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3777px;
   display:block;
 }
 
@@ -1090,7 +1090,7 @@ a.right_edge.trans.dark_background.wf_button:hover, button.right_edge.trans.dark
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3804px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3804px;
   display:block;
 }
 
@@ -1098,7 +1098,7 @@ a.right_edge.trans.dark_background.wf_button:active, button.right_edge.trans.dar
 {
   width:300px;
   height:27px;
-  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat right -3831px;
+  background:url('#{host()}/sprites/buttons.png?1317578532') no-repeat 0 -3831px;
   display:block;
 }
 
