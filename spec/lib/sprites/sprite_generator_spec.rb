@@ -23,7 +23,7 @@ describe SpriteGenerator do
 
       config.sprites_path('tmp/images/sprites')
       config.sprite_stylesheets_path('tmp/stylesheets/sprites')
-      config.sprite_pieces_path('spec/images/sprite_images')
+      config.sprite_pieces_path('spec/fixtures/sprite_images')
 
       sprites = Sprites::Sprites.new
 
@@ -43,7 +43,7 @@ describe SpriteGenerator do
 
       config.sprites_path('tmp/images/sprites')
       config.sprite_stylesheets_path('tmp/stylesheets/sprites')
-      config.sprite_pieces_path('spec/images/sprite_images')
+      config.sprite_pieces_path('spec/fixtures/sprite_images')
 
       sprites = Sprites::Sprites.new
 

@@ -25,7 +25,6 @@ module Sprites
 
     private
     def test_generate
-      orientation = @sprite.orientation
       sprite_pieces = @sprite.sprite_pieces
       sprite_image = Image.read(Sprite.sprite_full_path(configuration, sprite)).first
 
