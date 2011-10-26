@@ -17,5 +17,6 @@ When(/^I run the executable "([^"]*)"$/) do |bin|
 end
 
 Then(/^I should get valid sprites$/) do
-  pending # express the regexp above with the code you wish you had
+  tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], Sprites.configuration)
+  tester.should be_accurate
 end

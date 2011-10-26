@@ -1,3 +1,18 @@
 #!/usr/bin/env ruby
 
+require 'sprites'
+require 'sprites/cli'
 
+include Sprites
+
+begin
+  options = CommandLineOptionParser.new(ARGV)
+  options.parse
+
+  sprite_definition_file_path = options.definition_file_path
+  configuration = Configuration.new_for_command_line_options(options.options)
+  
+  CliApplication.run(sprite_definition_file_path, configuration)
+rescue CliApplication::DefinitionFileNotFound
+  abort 'No Sprite Definition File found.  Please supply a path or place your definition file in `pwd` or `pwd/config`'
+end

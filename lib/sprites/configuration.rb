@@ -4,9 +4,9 @@ module Sprites
 
     DEFAULT_CONFIGURATION = {
       'backend' => :rmagick,
-      'sprites_path' => 'images/sprites',
-      'sprite_stylesheets_path' => 'stylesheets/sprites',
-      'sprite_pieces_path' => 'images/sprite_images'
+      'sprites_path' => 'public/images/sprites',
+      'sprite_stylesheets_path' => 'public/stylesheets/sprites',
+      'sprite_pieces_path' => 'public/images/sprite_images'
     }
 
     def initialize
@@ -45,5 +45,15 @@ module Sprites
       backend_without_override && backend_without_override.to_sym
     end
     alias_method :backend, :backend_with_override
+
+    def self.new_for_command_line_options(options)
+      config = new
+      options.each do |k, v|
+        if FIELDS.include?(k.to_s)
+          config.send(k, v)
+        end
+      end
+      config
+    end
   end
 end

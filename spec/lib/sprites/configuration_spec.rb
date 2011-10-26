@@ -22,7 +22,7 @@ describe Configuration do
 
   context '#sprites_path' do
     it 'should return the default' do
-      config.sprites_path.should == 'images/sprites'
+      config.sprites_path.should == 'public/images/sprites'
     end
 
     it 'should accept an override' do
@@ -32,7 +32,7 @@ describe Configuration do
 
   context '#sprite_stylesheets_path' do
     it 'should return the default' do
-      config.sprite_stylesheets_path.should == 'stylesheets/sprites'
+      config.sprite_stylesheets_path.should == 'public/stylesheets/sprites'
     end
 
     it 'should accept an override' do
@@ -42,7 +42,7 @@ describe Configuration do
 
   context '#sprite_stylesheets_path' do
     it 'should return the default' do
-      config.sprite_pieces_path.should == 'images/sprite_images'
+      config.sprite_pieces_path.should == 'public/images/sprite_images'
     end
 
     it 'should accept an override' do
