@@ -5,7 +5,7 @@ include Sprites
 
 ROOT = Sprites.gem_root
 
-Dir['spec/support/*.rb'].each {|support_file| require support_file}
+Dir['spec/support/*.rb'].each {|support_file| load support_file}
 
 RSpec.configure do |config|
   config.include SpritesHelper

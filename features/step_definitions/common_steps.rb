@@ -1,3 +1,6 @@
+require 'sprites/test/sprite_generator_tester'
+require 'sprites/cli/command_line_option_parser'
+
 Given(/^a project folder$/) do
   Dir.chdir 'spec/fixtures/project1'
 end
@@ -17,6 +20,14 @@ When(/^I run the executable "([^"]*)"$/) do |bin|
 end
 
 Then(/^I should get valid sprites$/) do
-  tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], Sprites.configuration)
+  options = CommandLineOptionParser.new($*)
+  options.parse
+
+  sprite_definition_file_path = options.definition_file_path
+  configuration = Configuration.new_for_command_line_options(options.options)
+
+  load sprite_definition_file_path
+
+  tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], configuration)
   tester.should be_accurate
 end

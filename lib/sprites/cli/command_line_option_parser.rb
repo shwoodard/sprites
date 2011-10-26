@@ -25,10 +25,9 @@ module Sprites
       sprite_def_file_pathname = if arguments[0] =~ %r{^.+\.rb}
         Pathname.new(arguments.shift)
       else
-        case proc {|path| Pathname.new(path).exist? }
-        when PRIMARY_DEF_FILE_LOCATION
+        if file_exists?(PRIMARY_DEF_FILE_LOCATION)
           Pathname.new(PRIMARY_DEF_FILE_LOCATION)
-        when SECONDARY_DEF_FILE_LOCATION
+        elsif file_exists?(SECONDARY_DEF_FILE_LOCATION)
           Pathname.new(SECONDARY_DEF_FILE_LOCATION)
         else
           raise
@@ -38,6 +37,10 @@ module Sprites
       [sprite_def_file_pathname.realpath.to_s, arguments]
     rescue
       raise CliApplication::DefinitionFileNotFound
+    end
+
+    def file_exists?(path)
+      Pathname.new(path).exist?
     end
 
     def setup_parser(opts)
