@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'bundler/setup'
 require 'sprites'
 require 'sprites/cli'
-require 'ruby-debug'
 
 include Sprites
 
