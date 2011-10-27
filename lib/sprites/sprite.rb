@@ -1,6 +1,4 @@
 require 'fileutils'
-require 'pathname'
-require 'sprites/core_ext/pathname'
 require 'active_support/core_ext/array/extract_options'
 require 'active_support/core_ext/object/try'
 require 'sprites/sprite_pieces'
@@ -32,7 +30,7 @@ module Sprites
 
     def define(*args, &blk)
       @options = @options.merge args.extract_options!
-      @path ||= Pathname.wrap(path_for_arguments(@options, *args))
+      @path ||= Pathname(path_for_arguments(@options, *args))
       @stylesheet ||= Stylesheet.new(css_path, self)
       @options.delete(@path.to_s)
       set_options

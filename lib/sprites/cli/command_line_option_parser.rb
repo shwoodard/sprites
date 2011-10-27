@@ -1,4 +1,3 @@
-require 'optparse'
 require 'pathname'
 
 module Sprites
@@ -23,9 +22,9 @@ module Sprites
 
     def extract_sprite_definition_file_path(arguments)
       sprite_def_file_pathname = if arguments[0] =~ %r{^.+\.rb}
-        Pathname.new(arguments.shift)
+        Pathname(arguments.shift)
       elsif file_exists?('config/sprites.rb')
-        Pathname.new('config/sprites.rb')
+        Pathname('config/sprites.rb')
       else
         raise
       end
@@ -36,7 +35,7 @@ module Sprites
     end
 
     def file_exists?(path)
-      Pathname.new(path).exist?
+      Pathname(path).exist?
     end
 
     def setup_parser(opts)
