@@ -6,3 +6,7 @@ Gemfile.lock
 pkg/*
 doc
 .rvmrc
+
+spec/fixtures/project1/public/images/sprites/*.png
+spec/fixtures/project1/public/stylesheets/sprites/*.css
+
