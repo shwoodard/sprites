@@ -1,4 +1,4 @@
-require 'pathname'
+require 'optparse'
 
 module Sprites
   class CommandLineOptionParser < OptionParser
