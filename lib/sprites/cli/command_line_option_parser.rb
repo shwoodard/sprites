@@ -24,14 +24,10 @@ module Sprites
     def extract_sprite_definition_file_path(arguments)
       sprite_def_file_pathname = if arguments[0] =~ %r{^.+\.rb}
         Pathname.new(arguments.shift)
+      elsif file_exists?('config/sprites.rb')
+        Pathname.new('config/sprites.rb')
       else
-        if file_exists?(PRIMARY_DEF_FILE_LOCATION)
-          Pathname.new(PRIMARY_DEF_FILE_LOCATION)
-        elsif file_exists?(SECONDARY_DEF_FILE_LOCATION)
-          Pathname.new(SECONDARY_DEF_FILE_LOCATION)
-        else
-          raise
-        end
+        raise
       end
 
       [sprite_def_file_pathname.realpath.to_s, arguments]

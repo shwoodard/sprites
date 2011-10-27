@@ -30,4 +30,7 @@ Then(/^I should get valid sprites$/) do
 
   tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], configuration)
   tester.should be_accurate
+
+  FileUtils.rm Sprite.sprite_full_path(configuration, Sprites.application.sprites[:buttons])
+  FileUtils.rm Stylesheet.stylesheet_full_path(configuration, Sprites.application.sprites[:buttons].stylesheet)
 end

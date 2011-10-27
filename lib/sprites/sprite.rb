@@ -21,7 +21,7 @@ module Sprites
       :orientation => Orientations::VERTICAL
     }
 
-    attr_reader :name, :sprite_pieces
+    attr_reader :name, :sprite_pieces, :stylesheet
 
     def initialize(name)
       @name = name
