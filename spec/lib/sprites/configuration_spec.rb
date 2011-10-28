@@ -6,20 +6,6 @@ describe Configuration do
     Configuration.new
   end
 
-  context "#backend" do
-    it 'should be rmagick by default' do
-      config.backend.should be(:rmagick)
-    end
-
-    it 'should set the backend' do
-      config.backend(:mini_magick).backend.should == :mini_magick
-    end
-
-    it 'should coerse backend into a symbol' do
-      config.backend('mini_magick').backend.should == :mini_magick
-    end
-  end
-
   context '#sprites_path' do
     it 'should return the default' do
       config.sprites_path.should == 'public/images/sprites'
