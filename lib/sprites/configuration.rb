@@ -18,6 +18,12 @@ module Sprites
       self
     end
 
+    def configured?
+      FIELDS.any? do |field|
+        send(field) != DEFAULT_CONFIGURATION[field]
+      end
+    end
+
     FIELDS.each do |meth|
       eval <<-EVAL
         def #{meth}(*args)

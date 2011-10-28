@@ -19,10 +19,12 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rmagick"
   s.add_development_dependency "rcov"
   s.add_development_dependency 'css_parser', '~>1.1.5'
   s.add_development_dependency 'cucumber'
+  s.add_development_dependency 'rails'
 
   s.add_runtime_dependency "activesupport"
   s.add_runtime_dependency "oily_png"
