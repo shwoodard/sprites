@@ -14,8 +14,6 @@ RSpec::Core::RakeTask.new(:coverage) do |t|
   t.rcov_opts = ['--exclude', 'spec']
 end
 
-desc 'Default: run specs.'
-task :default => :spec
 
 namespace :spec do
   desc 'Create spec'
@@ -38,3 +36,8 @@ EOS
     puts spec_doc
   end
 end
+
+task(:cucumber) { sh 'cucumber' }
+
+desc 'Default: run specs.'
+task :default => [:spec, :cucumber]
