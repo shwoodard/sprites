@@ -49,4 +49,18 @@ describe Configuration do
       config.sprite_pieces_path('foo').sprite_pieces_path.should == 'foo'
     end
   end
+
+  context '#configured?' do
+    it 'should not be configured if no defaults have changed' do
+      Configuration.new.should_not be_configured
+    end
+    
+    Configuration::FIELDS.each do |field|
+      it "should be configured if the #{field} has changed" do
+        config = Configuration.new
+        config.send(field, 'foo')
+        config.should be_configured
+      end
+    end
+  end
 end
