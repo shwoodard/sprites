@@ -5,9 +5,10 @@ require 'sprites'
 
 module Sprites
   class Railtie < Rails::Railtie
-    include Rake::DSL
 
     rake_tasks do
+      include Rake::DSL
+
       desc "Generate sprites and stylesheets"
       task :sprites => :environment do
         assets_root = Rails.application.config.assets[:enabled] ? 'app/assets' : 'public'
