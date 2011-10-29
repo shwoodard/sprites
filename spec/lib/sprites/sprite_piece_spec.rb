@@ -22,8 +22,8 @@ describe SpritePiece do
       end
 
       sprite_piece = sprite.sprite_pieces['foo/bar.png']
-      sprite_piece.x = 0
-      sprite_piece.y = 345
+      sprite_piece.left = 0
+      sprite_piece.top = 345
       sprite_piece.width = 40
       sprite_piece.height = 50
 
@@ -36,6 +36,29 @@ describe SpritePiece do
   background:url('/tmp/images/sprites/foo.png') no-repeat 0 -345px;
 }
       CSS
+    end
+  end
+
+  context 'when overriding the default x and y background-position settings' do
+    it 'should allow you to override the x setting' do
+      config = Configuration.new
+      config.sprites_path('tmp/images/sprites')
+      config.sprite_stylesheets_path('tmp/stylesheets/sprites')
+      config.sprite_pieces_path('spec/fixtures/project1/public/images/sprite_images')
+      
+      sprite = Sprite.new(:foo).define do
+        sprite_piece 'foo/bar.png' => '.foo', :x => 'right'
+      end
+      sprite_piece = sprite.sprite_pieces['foo/bar.png']
+
+      generator = ChunkyPngGenerator.new(config)
+      sprites = Sprites::Sprites.new
+      sprites.add(sprite)
+
+      generator.generate(sprites)
+
+      sprite_piece.x.should == 'right'
+      sprite_piece.css(config, sprite).should include('right')
     end
   end
 end

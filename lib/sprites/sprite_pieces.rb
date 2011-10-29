@@ -11,6 +11,8 @@ module Sprites
     def add(options)
       path, css_selector = options.find {|k,v| k.is_a?(String)}
       @sprite_pieces[path].css_selector = css_selector
+      options.delete(path)
+      options.each {|k,v| @sprite_pieces[path].send(:"#{k}=", v) }
       @sprite_pieces[path]
     end
 

@@ -79,8 +79,8 @@ module Sprites
       image_list = sprite_pieces.map do |sp|
         sprite_piece_path = SpritePiece.sprite_piece_full_path(@configuration, sp)
         sp_image =  ChunkyPNG::Image.from_file(sprite_piece_path)
-        sp.x = orientation == Sprite::Orientations::VERTICAL ? 0 : width
-        sp.y = orientation == Sprite::Orientations::VERTICAL ? height : 0
+        sp.left = orientation == Sprite::Orientations::VERTICAL ? 0 : width
+        sp.top = orientation == Sprite::Orientations::VERTICAL ? height : 0
         sp.width = sp_image.width
         sp.height = sp_image.height
 
@@ -96,7 +96,7 @@ module Sprites
       @sprite = ChunkyPNG::Image.new(width, height, ChunkyPNG::Color::TRANSPARENT)
 
       image_list.each_with_index do |image, i|
-        @sprite.replace!(image, sprite_pieces.element_at(i).x, sprite_pieces.element_at(i).y)
+        @sprite.replace!(image, sprite_pieces.element_at(i).left, sprite_pieces.element_at(i).top)
         # $stdout << '.' if verbose
       end
       # $stdout << "\n" if verbose

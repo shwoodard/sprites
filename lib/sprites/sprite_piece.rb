@@ -1,7 +1,7 @@
 module Sprites
   class SpritePiece
     attr_reader :path
-    attr_accessor :sprite, :css_selector, :x, :y, :width, :height
+    attr_accessor :sprite, :css_selector, :x, :y, :width, :height, :top, :left
     alias_method :selector, :css_selector
 
     def initialize(path)
@@ -21,7 +21,7 @@ module Sprites
   display:block;
   width:#{width}px;
   height:#{height}px;
-  background:url('#{sprite_css_path || Sprite.sprite_css_path(configuration, sprite)}') no-repeat #{negative_pixelize(x)} #{negative_pixelize(y)};
+  background:url('#{sprite_css_path || Sprite.sprite_css_path(configuration, sprite)}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
 }
       CSS
     end
