@@ -1,8 +1,11 @@
+require 'rake'
 require 'rails/railtie'
 require 'sprites'
 
 module Sprites
   class Railtie < Rails::Railtie
+    include Rake::DSL
+
     rake_tasks do
       desc "Generate sprites and stylesheets"
       task :sprites => :environment do
