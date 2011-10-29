@@ -37,6 +37,7 @@ EOS
   end
 end
 
+desc "Run cucumber"
 task(:cucumber) { sh 'cucumber' }
 
 desc 'Default: run specs.'
