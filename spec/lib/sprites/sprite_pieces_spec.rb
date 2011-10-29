@@ -6,13 +6,15 @@ describe SpritePieces do
   before do
     @sprite_pieces = SpritePieces.new
 
-    @sprite_piece_definitions = [
+    options = [
       {'foo.png' => 'foo.css'},
       {'bar.png' => 'bar.css'},
       {'bas.png' => 'bas.css'}
     ]
 
-    @sprite_piece_definitions.each do |spd|
+    @sprite_piece_definitions = options.map(&:clone)
+
+    options.each do |spd|
       @sprite_pieces.add(spd)
     end
   end
