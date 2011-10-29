@@ -1,4 +1,7 @@
+require 'sprites'
+
 include Rake::DSL if defined?(Rake::DSL)
+include Sprites
 
 desc "Generate sprites and stylesheets"
 task :sprites => :environment do
