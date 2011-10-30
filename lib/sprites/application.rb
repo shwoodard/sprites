@@ -18,8 +18,7 @@ module Sprites
     # === Example
     #  sprites = Sprites.new
     def initialize(configuration = ::Sprites.configuration)
-      @configuration = configuration
-      @sprites = Sprites.new
+      @sprites = Sprites.new(configuration)
     end
 
     # The +define+ method provides access to the dsl

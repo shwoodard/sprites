@@ -2,7 +2,8 @@ require 'sprites/sprite'
 
 module Sprites
   class Sprites
-    def initialize
+    def initialize(configuration)
+      @configuration = configuration
       @sprites = Hash.new do |sprites, name|
         sprites[name] = Sprite.new(name)
       end
@@ -36,6 +37,8 @@ module Sprites
         @sprites[name].define(*args, &blk)
       elsif args.first.is_a?(Sprite)
         @sprites[args.first.name] = args.first
+      elsif args.first.is_a?(Symbol)
+        @sprites[args.first].define(*args).auto_define!(@configuration)
       else
         raise ArgumentError, "You need to supply a block or a Sprites::Sprite"
       end

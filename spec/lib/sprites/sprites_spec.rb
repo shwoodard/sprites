@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Sprites do
   before do
-    @sprites = Sprites::Sprites.new
+    @sprites = Sprites::Sprites.new(::Sprites.configuration)
   end
 
   context 'initialize' do
@@ -37,6 +37,20 @@ describe Sprites do
       sprite = Sprite.new(:"foo") {}
       @sprites.add(sprite)
       @sprites[:foo].should be(sprite)
+    end
+
+    it 'should add a sprite defined by only a symbol by using directory conventions and filenames for classes' do
+      config = Configuration.new
+      config.configure do
+        sprites_path File.join(ROOT, 'spec/fixtures/project2/public/images/sprites')
+        sprite_stylesheets_path File.join(ROOT, 'spec/fixtures/project2/public/stylesheets/sprites')
+        sprite_pieces_path File.join(ROOT, 'spec/fixtures/project2/public/images/sprite_images')
+      end
+
+      sprites = Sprites::Sprites.new(config)
+      sprites.add(:bas)
+      sprites[:bas].sprite_pieces.count.should be(5)
+      sprites[:bas].sprite_pieces.all.map(&:css_selector).should == %w(.bar .bas .bkgd_main_copy .foo .fubar)
     end
   end
 

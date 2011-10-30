@@ -1,4 +1,6 @@
 Sprites.application.define do
+  sprite :bas
+
   sprite "buttons.png" => "buttons.css" do
     sprite_piece 'buttons/btn-black-default-28.png' => 'a.black.wf_button > span, button.black.wf_submit span'
     sprite_piece 'buttons/btn-black-default-cap-28.png' => 'a.black.wf_button, button.black.wf_submit', :x => 'right'

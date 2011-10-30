@@ -52,7 +52,7 @@ describe SpritePiece do
       sprite_piece = sprite.sprite_pieces['foo/bar.png']
 
       generator = ChunkyPngGenerator.new(config)
-      sprites = Sprites::Sprites.new
+      sprites = Sprites::Sprites.new(config)
       sprites.add(sprite)
 
       generator.generate(sprites)

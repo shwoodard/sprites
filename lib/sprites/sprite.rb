@@ -95,6 +95,12 @@ module Sprites
       "/#{sprite_full_path(configuration, sprite)}"
     end
 
+    def auto_define!(config)
+      Dir[File.join(config.sprite_pieces_path, name.to_s, '*.png')].each do |path|
+        sprite_piece "#{name}/#{File.basename(path)}" => ".#{File.basename(path, File.extname(path))}"
+      end
+    end
+
     private
 
     def css_path

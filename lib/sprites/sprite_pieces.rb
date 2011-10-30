@@ -20,6 +20,10 @@ module Sprites
       @sprite_pieces.size
     end
 
+    def all
+      @sprite_pieces.values
+    end
+
     def empty?
       @sprite_pieces.empty?
     end
