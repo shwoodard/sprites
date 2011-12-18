@@ -24,8 +24,8 @@ module Sprites
     attr_reader :name, :sprite_pieces, :stylesheet
     attr_writer :path, :stylesheet_path, :url, :auto_define, :css_prefix
 
-    def initialize(name)
-      @name = name
+    def initialize(name, configuration = ::Sprites.configuration)
+      @name, @configuration = name, configuration
       @sprite_pieces = SpritePieces.new
       @stylesheet = Stylesheet.new(self)
     end
@@ -52,7 +52,7 @@ module Sprites
       unless [:orientation, :auto_define?, :css_prefix].include?(meth)
         super
       else
-        instance_variable_get(:"@#{meth.to_s.chomp('?')}") || DEFAULT_OPTIONS[meth]
+        instance_variable_get(:"@#{meth.to_s.chomp('?')}") || DEFAULT_OPTIONS[:"#{meth.to_s.chomp('?')}"]
       end
     end
 
@@ -84,8 +84,8 @@ module Sprites
       "/#{sprite_full_path(configuration, sprite)}"
     end
 
-    def auto_define!(config)
-      Dir[File.join(config.sprite_pieces_path, name.to_s, '*.png')].each do |path|
+    def auto_define!
+      Dir[File.join(@configuration.sprite_pieces_path, name.to_s, '*.png')].each do |path|
         sprite_piece "#{name}/#{File.basename(path)}", ".#{File.basename(path, File.extname(path))}"
       end
     end

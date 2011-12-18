@@ -100,6 +100,9 @@ module Sprites
         # $stdout << '.' if verbose
       end
       # $stdout << "\n" if verbose
+    # rescue
+    #   debugger
+    #   raise
     end
 
     def write(path, quality = nil)

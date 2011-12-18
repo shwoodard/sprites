@@ -61,6 +61,7 @@ module Sprites
             selector_data.width,
             selector_data.height
           )
+
           diff_iamge, pd = curr_sprite_image.compare_channel(sprite_piece_image, MeanSquaredErrorMetric)
           pd
         ensure

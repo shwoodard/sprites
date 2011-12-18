@@ -5,7 +5,7 @@ module Sprites
     def initialize(configuration)
       @configuration = configuration
       @sprites = Hash.new do |sprites, name|
-        sprites[name] = Sprite.new(name)
+        sprites[name] = Sprite.new(name, configuration)
       end
     end
 
