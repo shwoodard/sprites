@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'sprites/sprite_piece'
 
 describe SpritePiece do
   context 'self.sprite_piece_full_path' do
@@ -17,8 +18,8 @@ describe SpritePiece do
       config = Configuration.new
       config.sprites_path('tmp/images/sprites')
       
-      sprite = Sprite.new(:foo).define do
-        sprite_piece 'foo/bar.png' => '.foo'
+      sprite = Sprite.new(:foo).configure do
+        sprite_piece 'foo/bar.png', '.foo'
       end
 
       sprite_piece = sprite.sprite_pieces['foo/bar.png']
@@ -46,8 +47,8 @@ describe SpritePiece do
       config.sprite_stylesheets_path('tmp/stylesheets/sprites')
       config.sprite_pieces_path('spec/fixtures/project1/public/images/sprite_images')
       
-      sprite = Sprite.new(:foo).define do
-        sprite_piece 'foo/bar.png' => '.foo', :x => 'right'
+      sprite = Sprite.new(:foo).configure do
+        sprite_piece 'foo/bar.png', '.foo', :x => 'right'
       end
       sprite_piece = sprite.sprite_pieces['foo/bar.png']
 

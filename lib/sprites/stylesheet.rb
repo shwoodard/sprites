@@ -5,8 +5,12 @@ module Sprites
     attr_reader :path
     attr_accessor :sprite_pieces
 
-    def initialize(path, sprite = nil)
-      @path, @sprite = path, sprite
+    def initialize(sprite)
+      @sprite = sprite
+    end
+
+    def path
+      @sprite.stylesheet_path
     end
 
     def self.stylesheet_full_path(configuration, stylesheet)

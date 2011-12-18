@@ -31,17 +31,17 @@ module Sprites
       @sprites.size
     end
 
-    def add(*args, &blk)
-      if block_given?
-        name = sprite_name(*args)
-        @sprites[name].define(*args, &blk)
-      elsif args.first.is_a?(Sprite)
-        @sprites[args.first.name] = args.first
-      elsif args.first.is_a?(Symbol)
-        @sprites[args.first].define(*args).auto_define!(@configuration)
+    def add(name_or_sprite, options = {}, &blk)
+      sprite = case name_or_sprite
+      when Sprite
+        @sprites[name_or_sprite.name] = name_or_sprite
+      when Symbol, String
+        @sprites[name_or_sprite.to_sym]
       else
-        raise ArgumentError, "You need to supply a block or a Sprites::Sprite"
+        raise ArgumentError
       end
+
+      sprite.configure(options, &blk)
     end
 
     private

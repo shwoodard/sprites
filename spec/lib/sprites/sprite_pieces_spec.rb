@@ -6,22 +6,22 @@ describe SpritePieces do
   before do
     @sprite_pieces = SpritePieces.new
 
-    options = [
-      {'foo.png' => 'foo.css'},
-      {'bar.png' => 'bar.css'},
-      {'bas.png' => 'bas.css'}
+    sprite_pieces = [
+      ['foo.png', 'foo.css'],
+      ['bar.png', 'bar.css'],
+      ['bas.png', 'bas.css']
     ]
 
-    @sprite_piece_definitions = options.map(&:clone)
+    @sprite_piece_definitions = sprite_pieces.map(&:clone)
 
-    options.each do |spd|
-      @sprite_pieces.add(spd)
+    sprite_pieces.each do |sp|
+      @sprite_pieces.add(*sp)
     end
   end
 
   context '#map' do
     it 'should allow access to the @sprite_pieces OrderedHash values and allow them to be mapped' do
-      @sprite_pieces.map {|sp| {sp.path => sp.selector} }.should == @sprite_piece_definitions
+      @sprite_pieces.map {|sp| [sp.path, sp.selector] }.should == @sprite_piece_definitions
     end
   end
 
