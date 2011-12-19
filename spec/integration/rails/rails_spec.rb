@@ -1,8 +1,10 @@
 ENV['RAILS_ENV'] ||= 'test'
+require 'rake'
 require 'spec_helper'
 require 'rails/all'
-require 'fixtures/rails_project1/config/environment'
+require 'fixtures/rails_project1/config/application'
 require 'rspec-rails'
+require 'sprites/test/sprite_generator_tester'
 
 describe "When creating sprites and stylesheets in a rails app" do
   it 'should create the sprites when rake is executed' do

@@ -57,7 +57,7 @@ module Sprites
     end
 
     def configure(options = {}, &blk)
-      options.symbolize_keys!.assert_valid_keys(:path, :stylesheet_path, :url, :auto_define)
+      options.symbolize_keys!.assert_valid_keys(*DEFAULT_OPTIONS.keys)
       options.each {|k,v| send(:"#{k}=", v)}
       auto_define! if auto_define?
       instance_eval(&blk) if block_given?
