@@ -43,22 +43,5 @@ module Sprites
 
       sprite.configure(options, &blk)
     end
-
-    private
-
-    def sprite_name(*args)
-      return args.first if args.first.is_a?(Symbol)
-
-      path = case args.first
-      when String
-        args.first
-      when Hash
-        # This is for when sprite is used like,
-        # sprite 'path_to_sprite' => 'path_to_stylesheet', :option => value
-        args.first.find {|k,v| k.is_a?(String)}.first
-      end
-
-      File.basename(path, File.extname(path)).intern
-    end
   end
 end
