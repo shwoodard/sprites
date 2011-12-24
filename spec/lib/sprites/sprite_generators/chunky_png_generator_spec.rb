@@ -6,7 +6,7 @@ describe ChunkyPngGenerator do
     Sprites.configure do
       config.sprites_path = 'tmp/images/sprites/foo2/sprites'
       config.sprite_stylesheets_path = 'tmp/images/stylesheets/foo2/sprites'
-      config.sprite_pieces_path = File.join(Sprites.gem_root, 'spec/fixtures/known_good/sprite_images')
+      config.sprite_pieces_path = File.join(GEM_ROOT, 'spec/fixtures/known_good/sprite_images')
     end
 
     define_buttons_sprite

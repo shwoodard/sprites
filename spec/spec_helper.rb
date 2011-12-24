@@ -3,7 +3,7 @@ require 'sprites'
 
 include Sprites
 
-ROOT = Sprites.gem_root
+GEM_ROOT = Pathname(File.expand_path('../..', __FILE__))
 
 Dir['spec/support/*.rb'].each {|support_file| load support_file}
 

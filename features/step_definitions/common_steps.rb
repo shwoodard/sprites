@@ -15,7 +15,7 @@ Given(/^it contains sprite images$/) do
 end
 
 When(/^I run the executable "([^"]*)"$/) do |bin|
-  `#{Sprites.gem_root}/bin/#{bin}`
+  `#{GEM_ROOT}/bin/#{bin}`
   $?.to_i.should be(0)
 end
 

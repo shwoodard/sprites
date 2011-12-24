@@ -4,7 +4,7 @@ require 'sprites/autoloader'
 describe Autoloader do
   it 'should autoload sprites' do
     Sprites.configure do
-      config.sprite_pieces_path = File.join(Sprites.gem_root, 'spec/fixtures/rails_project1/app/assets/images/sprite_images')
+      config.sprite_pieces_path = File.join(GEM_ROOT, 'spec/fixtures/rails_project1/app/assets/images/sprite_images')
     end
 
     Sprites.application.sprites[:buttons].should be_nil
