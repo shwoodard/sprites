@@ -2,6 +2,8 @@ require 'active_support/ordered_hash'
 
 module Sprites
   class SpritePieces
+    include Enumerable
+
     def initialize
       @sprite_pieces = ActiveSupport::OrderedHash.new do |sprite_pieces, path|
         sprite_pieces[path] = SpritePiece.new(path)
@@ -14,16 +16,16 @@ module Sprites
       self
     end
 
-    def count
-      @sprite_pieces.size
-    end
-
-    def all
-      @sprite_pieces.values
+    def each(*args, &blk)
+      all.each(*args, &blk)
     end
 
     def empty?
       @sprite_pieces.empty?
+    end
+
+    def all
+      @sprite_pieces.values
     end
 
     def [](val)
@@ -34,14 +36,6 @@ module Sprites
 
     def element_at(index)
       @sprite_pieces.values[index]
-    end
-
-    def map(*args, &blk)
-      @sprite_pieces.values.map(*args, &blk)
-    end
-
-    def find(*args, &blk)
-      @sprite_pieces.values.find(*args, &blk)
     end
 
     def css(configuration = ::Sprites.configuration, sprite = @sprite)

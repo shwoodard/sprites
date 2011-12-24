@@ -28,7 +28,7 @@ module Sprites
     end
 
     def count
-      @sprites.size
+      @sprites.count
     end
 
     def add(name_or_sprite, options = {}, &blk)
