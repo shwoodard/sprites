@@ -10,9 +10,9 @@ module Sprites
       assets_root = Rails.application.config.assets[:enabled] ? 'app/assets' : 'public'
 
       ::Sprites.configure do
-        sprites_path Rails.root.join(assets_root, 'images/sprites')
-        sprite_stylesheets_path Rails.root.join(assets_root, 'stylesheets/sprites')
-        sprite_pieces_path Rails.root.join(assets_root, 'images/sprite_images')
+        config.sprites_path = Rails.root.join(assets_root, 'images/sprites')
+        config.sprite_stylesheets_path = Rails.root.join(assets_root, 'stylesheets/sprites')
+        config.sprite_pieces_path = Rails.root.join(assets_root, 'images/sprite_images')
       end unless ::Sprites.configuration.configured?
     end
   end

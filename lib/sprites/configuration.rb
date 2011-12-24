@@ -8,8 +8,14 @@ module Sprites
       'sprite_pieces_path' => 'public/images/sprite_images'
     }
 
+    attr_accessor *FIELDS
+
     def initialize
-      DEFAULT_CONFIGURATION.each {|k,v| self.send(k, v)}
+      DEFAULT_CONFIGURATION.each {|k,v| self.send(:"#{k}=", v)}
+    end
+
+    def config
+      self
     end
 
     def configure(&blk)
@@ -23,26 +29,11 @@ module Sprites
       end
     end
 
-    FIELDS.each do |meth|
-      eval <<-EVAL
-        def #{meth}(*args)
-          val, *_ = args
-
-          if val
-            @#{meth} = val
-            return self
-          end
-
-          @#{meth}
-        end
-      EVAL
-    end
-
     def self.new_for_command_line_options(options)
       config = new
       options.each do |k, v|
         if FIELDS.include?(k.to_s)
-          config.send(k, v)
+          config.send(:"#{k}=", v)
         end
       end
       config

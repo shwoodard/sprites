@@ -12,7 +12,8 @@ describe Configuration do
     end
 
     it 'should accept an override' do
-      config.sprites_path('foo').sprites_path.should == 'foo'
+      config.sprites_path = 'foo'
+      config.sprites_path.should == 'foo'
     end
   end
 
@@ -22,7 +23,8 @@ describe Configuration do
     end
 
     it 'should accept an override' do
-      config.sprite_stylesheets_path('foo').sprite_stylesheets_path.should == 'foo'
+      config.sprite_stylesheets_path = 'foo'
+      config.sprite_stylesheets_path.should == 'foo'
     end
   end
 
@@ -32,7 +34,8 @@ describe Configuration do
     end
 
     it 'should accept an override' do
-      config.sprite_pieces_path('foo').sprite_pieces_path.should == 'foo'
+      config.sprite_pieces_path = 'foo'
+      config.sprite_pieces_path.should == 'foo'
     end
   end
 
@@ -44,7 +47,7 @@ describe Configuration do
     Configuration::FIELDS.each do |field|
       it "should be configured if the #{field} has changed" do
         config = Configuration.new
-        config.send(field, 'foo')
+        config.send(:"#{field}=", 'foo')
         config.should be_configured
       end
     end

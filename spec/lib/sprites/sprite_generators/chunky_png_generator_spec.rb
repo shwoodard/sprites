@@ -4,9 +4,9 @@ require 'sprites/test/sprite_generator_tester'
 describe ChunkyPngGenerator do
   it 'should generate a sprite and a stylesheet' do
     Sprites.configure do
-      sprites_path 'tmp/images/sprites/foo2/sprites'
-      sprite_stylesheets_path 'tmp/images/stylesheets/foo2/sprites'
-      sprite_pieces_path File.join(Sprites.gem_root, 'spec/fixtures/known_good/sprite_images')
+      config.sprites_path = 'tmp/images/sprites/foo2/sprites'
+      config.sprite_stylesheets_path = 'tmp/images/stylesheets/foo2/sprites'
+      config.sprite_pieces_path = File.join(Sprites.gem_root, 'spec/fixtures/known_good/sprite_images')
     end
 
     define_buttons_sprite

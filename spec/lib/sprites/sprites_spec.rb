@@ -28,9 +28,9 @@ describe Sprites do
     it 'should add a sprite defined by only a symbol by using directory conventions and filenames for classes' do
       config = Configuration.new
       config.configure do
-        sprites_path File.join(ROOT, 'spec/fixtures/project2/public/images/sprites')
-        sprite_stylesheets_path File.join(ROOT, 'spec/fixtures/project2/public/stylesheets/sprites')
-        sprite_pieces_path File.join(ROOT, 'spec/fixtures/project2/public/images/sprite_images')
+        config.sprites_path = File.join(ROOT, 'spec/fixtures/project2/public/images/sprites')
+        config.sprite_stylesheets_path = File.join(ROOT, 'spec/fixtures/project2/public/stylesheets/sprites')
+        config.sprite_pieces_path = File.join(ROOT, 'spec/fixtures/project2/public/images/sprite_images')
       end
 
       sprites = Sprites::Sprites.new(config)

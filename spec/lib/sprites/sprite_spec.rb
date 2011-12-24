@@ -71,7 +71,7 @@ describe Sprite do
   context "self.sprite_full_path(configuration, sprite)" do
     it 'should return the sprite full path' do
       config = Configuration.new
-      config.sprites_path('tmp/images/sprites')
+      config.sprites_path = 'tmp/images/sprites'
 
       sprite = Sprite.new(:foo)
 
@@ -82,7 +82,7 @@ describe Sprite do
   context 'self.sprite_css_path(configuration, sprite)' do
     it 'should return the path for use in the url in the background style attribute' do
       config = Configuration.new
-      config.sprites_path('tmp/images/sprites')
+      config.sprites_path = 'tmp/images/sprites'
 
       sprite = Sprite.new(:foo)
 
