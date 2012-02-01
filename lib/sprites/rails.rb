@@ -1,3 +1,4 @@
+require 'sprites'
 require 'rails/railtie'
 
 module Sprites  
