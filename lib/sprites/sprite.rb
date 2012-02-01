@@ -81,7 +81,9 @@ module Sprites
     end
 
     def self.sprite_css_path(configuration, sprite)
-      "/#{sprite_full_path(configuration, sprite)}"
+      # TODO only works for rails and sprites dir is hard coded
+      # TODO what if there is another app in the path
+      "/assets/sprites/#{File.basename(sprite_full_path(configuration, sprite))}"
     end
 
     def auto_define!
