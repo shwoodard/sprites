@@ -34,7 +34,7 @@ describe SpritePiece do
   display:block;
   width:40px;
   height:50px;
-  background:url('/tmp/images/sprites/foo.png') no-repeat 0 -345px;
+  background:url('/assets/sprites/foo.png') no-repeat 0 -345px;
 }
       CSS
     end

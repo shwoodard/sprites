@@ -86,7 +86,7 @@ describe Sprite do
 
       sprite = Sprite.new(:foo)
 
-      Sprite.sprite_css_path(config, sprite).should == '/tmp/images/sprites/foo.png'
+      Sprite.sprite_css_path(config, sprite).should == '/assets/sprites/foo.png'
     end
   end
 end
