@@ -12,7 +12,7 @@ class Sprites
       File.join(configuration.sprite_pieces_path, sprite_piece.path)
     end
 
-    def css(configuration = ::Sprites.configuration, sprite = @sprite, sprite_css_path = nil)
+    def css(configuration = Sprites.configuration, sprite = @sprite, sprite_css_path = nil)
       raise "Sprite needed." unless sprite
 
       <<-CSS
