@@ -1,4 +1,4 @@
-module Sprites
+class Sprites
   class CliApplication
     class DefinitionFileNotFound < StandardError; end
 

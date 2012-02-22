@@ -1,6 +1,4 @@
-require 'sprites/sprites'
-
-module Sprites
+class Sprites
 
   # This class provides top level access to the Sprites application.
   # So far, three methods are available:

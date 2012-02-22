@@ -1,4 +1,4 @@
-module Sprites
+class Sprites
   class Configuration
     FIELDS = %w{sprites_path sprite_stylesheets_path sprite_pieces_path}
 

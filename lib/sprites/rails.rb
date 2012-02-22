@@ -1,7 +1,7 @@
 require 'sprites'
 require 'rails/railtie'
 
-module Sprites  
+class Sprites  
   class Railtie < ::Rails::Railtie
     rake_tasks do
       load File.expand_path('../rails/sprites.rake', __FILE__)

@@ -1,6 +1,6 @@
 require 'active_support/core_ext/object/blank'
 
-module Sprites
+class Sprites
   class Stylesheet
     attr_reader :path
     attr_accessor :sprite_pieces

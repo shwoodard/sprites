@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Sprites do
   before do
-    @sprites = Sprites::Sprites.new(::Sprites.configuration)
+    @sprites = Sprites.new(Sprites.configuration)
   end
 
   context 'initialize' do
@@ -15,25 +15,25 @@ describe Sprites do
     context 'with the sprite identified by a symbol' do
       it 'should add a sprite to the collection' do
         @sprites.add(:foo)
-        @sprites[:foo].should be_a(Sprite)
+        @sprites[:foo].should be_a(Sprites::Sprite)
       end
     end
 
     it 'should add the sprite if passed in a Sprites::Sprite' do
-      sprite = Sprite.new(:"foo") {}
+      sprite = Sprites::Sprite.new(:"foo") {}
       @sprites.add(sprite)
       @sprites[:foo].should be(sprite)
     end
 
     it 'should add a sprite defined by only a symbol by using directory conventions and filenames for classes' do
-      config = Configuration.new
+      config = Sprites::Configuration.new
       config.configure do
         config.sprites_path = File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprites')
         config.sprite_stylesheets_path = File.join(GEM_ROOT, 'spec/fixtures/project2/public/stylesheets/sprites')
         config.sprite_pieces_path = File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprite_images')
       end
 
-      sprites = Sprites::Sprites.new(config)
+      sprites = Sprites.new(config)
       sprites.add(:bas)
       sprites[:bas].sprite_pieces.count.should be(5)
       sprites[:bas].sprite_pieces.all.map(&:css_selector).should == %w(.bar .bas .bkgd_main_copy .foo .fubar)
@@ -53,7 +53,7 @@ describe Sprites do
     it 'should retrieve the sprite' do
       @sprites[:foo].should be_nil
       @sprites.add(:foo) {}
-      @sprites[:foo].should be_a(Sprite)
+      @sprites[:foo].should be_a(Sprites::Sprite)
     end
 
     it 'should not add to the collection during retrieval' do
@@ -84,7 +84,7 @@ describe Sprites do
       test_sprites = Set.new
 
       4.times do |i|
-        sprite = Sprite.new(:"foo#{i}") {}
+        sprite = Sprites::Sprite.new(:"foo#{i}") {}
         sprites << sprite
         @sprites.add(sprite)
       end

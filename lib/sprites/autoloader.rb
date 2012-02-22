@@ -1,6 +1,6 @@
 require 'sprites/sprite'
 
-module Sprites
+class Sprites
   class Autoloader
     def initialize(configuration = ::Sprites.configuration)
       @configuration = configuration

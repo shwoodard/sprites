@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'sprites/autoloader'
 
-describe Autoloader do
+describe Sprites::Autoloader do
   it 'should autoload sprites' do
     Sprites.configure do
       config.sprite_pieces_path = File.join(GEM_ROOT, 'spec/fixtures/rails_project1/app/assets/images/sprite_images')

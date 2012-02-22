@@ -20,17 +20,17 @@ When(/^I run the executable "([^"]*)"$/) do |bin|
 end
 
 Then(/^I should get valid sprites$/) do
-  options = CommandLineOptionParser.new($*)
+  options = Sprites::CommandLineOptionParser.new($*)
   options.parse
 
   sprite_definition_file_path = options.definition_file_path
-  configuration = Configuration.new_for_command_line_options(options.options)
+  configuration = Sprites::Configuration.new_for_command_line_options(options.options)
 
-  load sprite_definition_file_path
+  require sprite_definition_file_path
 
-  tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], configuration)
+  tester = Sprites::SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], configuration)
   tester.should be_accurate
 
-  FileUtils.rm Sprite.sprite_full_path(configuration, Sprites.application.sprites[:buttons])
-  FileUtils.rm Stylesheet.stylesheet_full_path(configuration, Sprites.application.sprites[:buttons].stylesheet)
+  FileUtils.rm Sprites::Sprite.sprite_full_path(configuration, Sprites.application.sprites[:buttons])
+  FileUtils.rm Sprites::Stylesheet.stylesheet_full_path(configuration, Sprites.application.sprites[:buttons].stylesheet)
 end

@@ -1,4 +1,4 @@
-module Sprites
+class Sprites
   class SpritePiece
     attr_reader :path
     attr_accessor :sprite, :css_selector, :x, :y, :width, :height, :top, :left
