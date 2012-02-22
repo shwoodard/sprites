@@ -7,15 +7,16 @@ Gem::Specification.new do |s|
   s.version     = Sprites::VERSION
   s.authors     = ["Sam Woodard"]
   s.email       = ["sam@activecodebase.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/shwoodard/sprites"
   s.summary     = %q{Sprites generator for ruby applications or from cli}
   s.description = %q{Sprites generator for ruby applications or from cli}
 
   s.rubyforge_project = "sprites"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  files = `git ls-files`.split("\n")
+  s.files         = files
+  s.test_files    = files.find_all { |path| path =~ /^(test,spec,features)/ }
+  s.executables   = files.find_all { |path| path =~ /^bin/ }.map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
