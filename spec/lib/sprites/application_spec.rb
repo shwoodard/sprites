@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Application do
+describe Sprites::Application do
   before do
-    @app = Application.new
+    @app = Sprites::Application.new
   end
 
   context "#define" do
@@ -13,7 +13,7 @@ describe Application do
     it 'should allow access to the api when defining a sprite with a symbol' do
       @app.sprite(:foo)
 
-      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].should be_a(Sprites::Sprite)
       @app.sprites[:foo].name.should be(:foo)
       @app.sprites[:foo].path.to_s.should == "foo.png"
       @app.sprites[:foo].stylesheet_path.should == "foo.css"
@@ -21,7 +21,7 @@ describe Application do
 
     it 'should allow access to the api when defining a sprite with a hash' do
       @app.sprite(:foo, :path => 'sprites/foo.png', :stylesheet_path => 'sprites/foo.css')
-      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].should be_a(Sprites::Sprite)
       @app.sprites[:foo].name.should be(:foo)
       @app.sprites[:foo].path.to_s.should == "sprites/foo.png"
       @app.sprites[:foo].stylesheet_path.should == "sprites/foo.css"
@@ -38,7 +38,7 @@ describe Application do
       @app.sprite(:foo) {}
       @app.sprites.should_not be_empty
       @app.sprites.count.should be(1)
-      @app.sprites[:foo].should be_a(Sprite)
+      @app.sprites[:foo].should be_a(Sprites::Sprite)
     end
   end
 

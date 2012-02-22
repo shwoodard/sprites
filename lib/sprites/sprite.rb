@@ -4,7 +4,7 @@ require 'sprites/sprite_pieces'
 require 'sprites/sprite_piece'
 require 'sprites/stylesheet'
 
-module Sprites
+class Sprites
   class Sprite
     class InvalidOrientation < StandardError; end
     module Orientations

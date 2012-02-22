@@ -6,7 +6,7 @@ rescue LoadError
   require 'RMagick'
 end
 
-module Sprites
+class Sprites
   class SpriteGeneratorTester
     include Magick
 

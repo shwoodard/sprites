@@ -1,10 +1,10 @@
 require 'spec_helper'
 require 'sprites/sprite_pieces'
 
-describe SpritePieces do
+describe Sprites::SpritePieces do
 
   before do
-    @sprite_pieces = SpritePieces.new
+    @sprite_pieces = Sprites::SpritePieces.new
 
     sprite_pieces = [
       ['foo.png', 'foo.css'],

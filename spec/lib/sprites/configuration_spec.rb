@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'sprites/configuration'
 
-describe Configuration do
+describe Sprites::Configuration do
   let(:config) do
-    Configuration.new
+    Sprites::Configuration.new
   end
 
   context '#sprites_path' do
@@ -41,12 +41,12 @@ describe Configuration do
 
   context '#configured?' do
     it 'should not be configured if no defaults have changed' do
-      Configuration.new.should_not be_configured
+      Sprites::Configuration.new.should_not be_configured
     end
     
-    Configuration::FIELDS.each do |field|
+    Sprites::Configuration::FIELDS.each do |field|
       it "should be configured if the #{field} has changed" do
-        config = Configuration.new
+        config = Sprites::Configuration.new
         config.send(:"#{field}=", 'foo')
         config.should be_configured
       end
