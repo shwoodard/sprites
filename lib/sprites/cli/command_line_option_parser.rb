@@ -1,6 +1,6 @@
 require 'optparse'
 
-module Sprites
+class Sprites
   class CommandLineOptionParser < OptionParser
     PRIMARY_DEF_FILE_LOCATION = 'config/sprites.rb'
     SECONDARY_DEF_FILE_LOCATION = 'sprites.rb'

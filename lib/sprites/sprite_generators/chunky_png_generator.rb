@@ -4,7 +4,7 @@ rescue
   require 'chunky_png'
 end
 
-module Sprites
+class Sprites
   class ChunkyPngGenerator
     attr_reader :configuration
 

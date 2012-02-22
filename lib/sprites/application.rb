@@ -1,6 +1,4 @@
-require 'sprites/sprites'
-
-module Sprites
+class Sprites
 
   # This class provides top level access to the Sprites application.
   # So far, three methods are available:
@@ -17,7 +15,7 @@ module Sprites
     # The +new+ class method initializes the class.
     # === Example
     #  sprites = Sprites.new
-    def initialize(configuration = ::Sprites.configuration)
+    def initialize(configuration = Sprites.configuration)
       @sprites = Sprites.new(configuration)
     end
 

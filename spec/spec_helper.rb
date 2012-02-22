@@ -1,13 +1,12 @@
 require 'rspec'
+require 'rails' # load rails before sprites for the engine to be loaded
 require 'sprites'
-
-include Sprites
 
 GEM_ROOT = Pathname(File.expand_path('../..', __FILE__))
 
-Dir['spec/support/*.rb'].each {|support_file| load support_file}
+Dir['spec/support/*.rb'].each {|support_file| require support_file}
 
 RSpec.configure do |config|
   config.include SpritesHelper
-  config.after { ::Sprites.application.sprites.clear }
+  config.after(:each, :rails => false) { Sprites.reset! }
 end

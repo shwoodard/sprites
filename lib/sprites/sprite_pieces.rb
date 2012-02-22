@@ -1,6 +1,6 @@
 require 'active_support/ordered_hash'
 
-module Sprites
+class Sprites
   class SpritePieces
     include Enumerable
 

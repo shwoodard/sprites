@@ -1,4 +1,4 @@
-module Sprites
+class Sprites
   class SpritePiece
     attr_reader :path
     attr_accessor :sprite, :css_selector, :x, :y, :width, :height, :top, :left
@@ -12,7 +12,7 @@ module Sprites
       File.join(configuration.sprite_pieces_path, sprite_piece.path)
     end
 
-    def css(configuration = ::Sprites.configuration, sprite = @sprite, sprite_css_path = nil)
+    def css(configuration = Sprites.configuration, sprite = @sprite, sprite_css_path = nil)
       raise "Sprite needed." unless sprite
 
       <<-CSS

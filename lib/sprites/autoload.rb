@@ -1,1 +1,0 @@
-::Sprites::Autoloader.new.autoload

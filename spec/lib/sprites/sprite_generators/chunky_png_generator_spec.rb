@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'sprites/test/sprite_generator_tester'
 
-describe ChunkyPngGenerator do
+describe Sprites::ChunkyPngGenerator do
   it 'should generate a sprite and a stylesheet' do
     Sprites.configure do
       config.sprites_path = 'tmp/images/sprites/foo2/sprites'
@@ -11,10 +11,10 @@ describe ChunkyPngGenerator do
 
     define_buttons_sprite
 
-    sprite_generator = ChunkyPngGenerator.new(Sprites.configuration)
+    sprite_generator = Sprites::ChunkyPngGenerator.new(Sprites.configuration)
     sprite_generator.generate(Sprites.application.sprites)
 
-    tester = SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], Sprites.configuration)
+    tester = Sprites::SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], Sprites.configuration)
     tester.should be_accurate
   end
 end
