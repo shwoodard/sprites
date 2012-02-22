@@ -28,6 +28,11 @@ class Sprites
       @configuration
     end
     alias_method :configuration, :configure
+
+    def reset!
+      @configuration = nil
+      @application = nil
+    end
   end
   
   def initialize(configuration)
@@ -73,3 +78,5 @@ class Sprites
   end
 
 end
+
+require 'sprites/railtie' if defined?(Rails)
