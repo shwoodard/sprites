@@ -8,7 +8,6 @@ describe Sprites::Railtie do
   before do
     SpritesRailsTestApp::Application.initialize!
   end
-  
 
   it 'should raise an Sprites::CliApplication::DefinitionFileNotFound if no sprite def file is found' do
     Pathname.any_instance.expects(:exist?).returns(false)
