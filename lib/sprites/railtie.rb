@@ -1,3 +1,5 @@
+require 'sprites/cli'
+
 class Sprites
   class Railtie < ::Rails::Railtie
     rake_tasks do

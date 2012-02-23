@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
+  s.add_development_dependency "mocha"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rmagick"
   s.add_development_dependency 'css_parser', '~>1.1.5'
