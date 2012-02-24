@@ -4,9 +4,10 @@ class Sprites
   class SpritePieces
     include Enumerable
 
-    def initialize
+    def initialize(sprites, sprite)
+      @sprites, @sprite = sprites, sprite
       @sprite_pieces = ActiveSupport::OrderedHash.new do |sprite_pieces, path|
-        sprite_pieces[path] = SpritePiece.new(path)
+        sprite_pieces[path] = SpritePiece.new(sprites, sprite, path)
       end
     end
 
@@ -38,8 +39,8 @@ class Sprites
       @sprite_pieces.values[index]
     end
 
-    def css(configuration = ::Sprites.configuration, sprite = @sprite)
-      @sprite_pieces.values.map {|sp| sp.css(configuration, sprite)}.join("\n")
+    def css
+      @sprite_pieces.values.map {|sp| sp.css}.join("\n")
     end
   end
 end

@@ -4,24 +4,27 @@ class Sprites
     attr_accessor :sprite, :css_selector, :x, :y, :width, :height, :top, :left
     alias_method :selector, :css_selector
 
-    def initialize(path)
+    def initialize(sprites, sprite, path)
+      @sprites, @sprite = sprites, sprite
       @path = path
     end
 
-    def self.sprite_piece_full_path(configuration, sprite_piece)
-      File.join(configuration.sprite_pieces_path, sprite_piece.path)
+    def asset_path
+      @sprite.asset_path
     end
 
-    def css(configuration = Sprites.configuration, sprite = @sprite, sprite_css_path = nil)
-      raise "Sprite needed." unless sprite
+    def source_path
+      File.join(@sprites.configuration.sprite_pieces_path, path)
+    end
 
+    def css
       <<-CSS
 #{selector}
 {
   display:block;
   width:#{width}px;
   height:#{height}px;
-  background:url('#{sprite_css_path || Sprite.sprite_css_path(configuration, sprite)}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
+  background:url('#{asset_path}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
 }
       CSS
     end

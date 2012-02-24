@@ -6,13 +6,20 @@ end
 
 class Sprites
   class ChunkyPngGenerator
-    attr_reader :configuration
+    attr_reader :sprites
 
-    def initialize(configuration)
-      @configuration = configuration
+    def initialize(sprites)
+      @sprites = sprites
     end
     
-    def generate(sprites)
+    def configuration
+      sprites.configuration
+    end
+
+    # TODO probably refactor to make this class take a Sprites instance.
+    def generate
+      sprites.load
+
       # verbose = ENV['VERBOSE'] == 'true' || ENV['DEBUG']
       #       
       # if verbose
@@ -77,7 +84,7 @@ class Sprites
       width, height = 0, 0
 
       image_list = sprite_pieces.map do |sp|
-        sprite_piece_path = SpritePiece.sprite_piece_full_path(@configuration, sp)
+        sprite_piece_path = sp.source_path
         sp_image =  ChunkyPNG::Image.from_file(sprite_piece_path)
         sp.left = orientation == Sprite::Orientations::VERTICAL ? 0 : width
         sp.top = orientation == Sprite::Orientations::VERTICAL ? height : 0

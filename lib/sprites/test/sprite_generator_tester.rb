@@ -52,7 +52,7 @@ class Sprites
       percent_diferences = sprite_pieces_with_selector_data.map do |sp, selector_data|
         begin
           raise selector_data.inspect if sp.nil?
-          sprite_piece_path = gem_root.join(SpritePiece.sprite_piece_full_path(configuration, sp))
+          sprite_piece_path = gem_root.join(sp.source_path)
           sprite_piece_image = Image.read(sprite_piece_path).first
           
           curr_sprite_image = sprite_image.crop(

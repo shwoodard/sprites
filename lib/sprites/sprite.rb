@@ -16,7 +16,6 @@ class Sprites
       :orientation => Orientations::VERTICAL,
       :path => lambda {|sprite| "#{sprite.name}.png" },
       :stylesheet_path => lambda {|sprite| sprite.stylesheet.path },
-      :url => lambda {|sprite| sprite.stylesheet.url },
       :auto_define => true,
       :css_prefix => ''
     }
@@ -24,9 +23,10 @@ class Sprites
     attr_reader :name, :sprite_pieces, :stylesheet
     attr_writer :path, :stylesheet_path, :url, :auto_define, :css_prefix
 
-    def initialize(name, configuration = ::Sprites.configuration)
-      @name, @configuration = name, configuration
-      @sprite_pieces = SpritePieces.new
+    def initialize(name, sprites)
+      @name, @sprites = name, sprites
+
+      @sprite_pieces = SpritePieces.new(@sprites, self)
       @stylesheet = Stylesheet.new(self)
     end
 
@@ -68,11 +68,12 @@ class Sprites
       path = Stylesheet.stylesheet_full_path(configuration, stylesheet)
       FileUtils.mkdir_p(File.dirname(path))
       File.open path, 'w+' do |f|
-        f << stylesheet.css(configuration, self, sprite_pieces)
+        f << stylesheet.css(sprite_pieces)
       end
     end
 
-    def sprite_piece(path, css_class, options = {})
+    def sprite_piece(path, css_class = nil, options = {})
+      css_class ||= File.basename(path, File.extname(path)).split('/').join('-')
       @sprite_pieces.add(path, css_class, options)
     end
 
@@ -87,13 +88,17 @@ class Sprites
     end
 
     def auto_define!
-      Dir[File.join(@configuration.sprite_pieces_path, name.to_s, '*.png')].each do |path|
+      Dir[File.join(@sprites.configuration.sprite_pieces_path, name.to_s, '*.png')].each do |path|
         sprite_piece "#{name}/#{File.basename(path)}", ".#{File.basename(path, File.extname(path))}"
       end
     end
 
     def stylesheet_path
       @stylesheet_path || path.to_s.gsub(/png$/, 'css')
+    end
+
+    def asset_path
+      url || File.join(@sprites.configuration.sprite_asset_path, path)
     end
   end
 end
