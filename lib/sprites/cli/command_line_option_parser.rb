@@ -22,7 +22,7 @@ class Sprites
     def extract_sprite_definition_file_path(arguments)
       sprite_def_file_pathname = if arguments[0] =~ %r{^.+\.rb}
         Pathname(arguments.shift)
-      elsif File.exists?(path = File.join(Dir.pwd, 'config/sprites.rb').tap{|x| p x})
+      elsif File.exists?(path = File.join(Dir.pwd, 'config/sprites.rb'))
         Pathname(path)
       else
         raise CliApplication::DefinitionFileNotFound
