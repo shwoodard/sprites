@@ -44,6 +44,13 @@ class Sprites
       opts.separator ""
       opts.separator "Specific options:"
 
+      opts.on("-r", "--project_root", <<-EOS
+Define the path to the root of the project. DEFAULT: pwd
+      EOS
+      ) do |path|
+        @options[:project_root] = path || Dir.pwd
+      end
+
       opts.on("-s", "--sprites_path", <<-EOS
 Define the path to where the sprites should be placed. DEFAULT: 'public/images/sprites'
       EOS

@@ -7,5 +7,5 @@ Feature: Creating sprites and stylesheets
     Given a project folder
     And it contains a sprites dsl definition file
     And it contains sprite images
-    When I run the executable "sprites"
+    When I run the executable "sprites" with flags "-r spec/fixtures/project1"
     Then I should get valid sprites
