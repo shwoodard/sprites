@@ -41,4 +41,4 @@ desc "Run cucumber"
 task(:cucumber) { sh 'cucumber' }
 
 desc 'Default: run specs.'
-task :default => [:spec, :cucumber]
+task :default => :spec

@@ -2,8 +2,14 @@ require 'spec_helper'
 require 'sprites/sprite'
 
 describe Sprites::Sprite do
+  let(:sprites) { Sprites.new }
+
   before do
-    @sprite = Sprites::Sprite.new(:foo)
+    @sprite = sprites.sprite(:foo)
+  end
+
+  after do
+    sprites.reset!
   end
 
   context '#name' do
@@ -14,22 +20,22 @@ describe Sprites::Sprite do
 
   context '#path' do
     it 'should retrieve the path' do
-      @sprite.path.to_s.should == "foo.png"
+      @sprite.path.should == "public/images/sprites/foo.png"
     end
   end
 
   context "#sprite_piece" do
     it 'should respond_to sprite_piece' do
-      Sprites::Sprite.new(:foo).should respond_to(:sprite_piece)
+      Sprites::Sprite.new(:foo, sprites).should respond_to(:sprite_piece)
     end
 
     it 'should return a Sprites::SpritePieces' do
-      sprite = Sprites::Sprite.new(:foo)
+      sprite = Sprites::Sprite.new(:foo, sprites)
       sprite.sprite_piece('sprite_images/foo.png', '.foo').should be_a(Sprites::SpritePieces)
     end
 
     it 'should add a sprite piece to the collection' do
-      sprite = Sprites::Sprite.new(:foo)
+      sprite = Sprites::Sprite.new(:foo, sprites)
       sprite.sprite_piece('sprite_images/foo.png', '.foo')
       sprite.sprite_pieces.should_not be_empty
       sprite.sprite_pieces.count.should be(1)
@@ -51,7 +57,7 @@ describe Sprites::Sprite do
 
   context '#stylesheet_path' do
     it 'should return the stylesheet path' do
-      @sprite.stylesheet_path.to_s.should == 'foo.css'
+      @sprite.stylesheet_path.should == 'public/stylesheets/sprites/foo.css'
     end
   end
 
@@ -68,25 +74,12 @@ describe Sprites::Sprite do
     end
   end
 
-  context "self.sprite_full_path(configuration, sprite)" do
-    it 'should return the sprite full path' do
-      config = Sprites::Configuration.new
-      config.sprites_path = 'tmp/images/sprites'
-
-      sprite = Sprites::Sprite.new(:foo)
-
-      Sprites::Sprite.sprite_full_path(config, sprite).should == 'tmp/images/sprites/foo.png'
-    end
-  end
-
-  context 'self.sprite_css_path(configuration, sprite)' do
+  context '#background_property_url' do
     it 'should return the path for use in the url in the background style attribute' do
-      config = Sprites::Configuration.new
-      config.sprites_path = 'tmp/images/sprites'
+      sprites.configuration.configure(:sprite_asset_path => '/assets/sprites')
+      sprite = Sprites::Sprite.new(:foo, sprites)
 
-      sprite = Sprites::Sprite.new(:foo)
-
-      Sprites::Sprite.sprite_css_path(config, sprite).should == '/assets/sprites/foo.png'
+      sprite.background_property_url.should == '/assets/sprites/foo.png'
     end
   end
 end

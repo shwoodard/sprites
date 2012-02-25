@@ -4,14 +4,22 @@ class Sprites
   class SpritePieces
     include Enumerable
 
-    def initialize
+    SUPPORTED_OPTIONS = %w(x y)
+
+    attr_accessor *SUPPORTED_OPTIONS
+
+    def initialize(sprites, sprite)
+      @sprites, @sprite = sprites, sprite
       @sprite_pieces = ActiveSupport::OrderedHash.new do |sprite_pieces, path|
-        sprite_pieces[path] = SpritePiece.new(path)
+        sprite_pieces[path] = SpritePiece.new(sprites, sprite, path)
       end
     end
 
     def add(path, css_selector, options = {})
+      options.symbolize_keys!.assert_valid_keys(*(SUPPORTED_OPTIONS.map(&:intern)))
+
       @sprite_pieces[path].css_selector = css_selector
+
       options.each {|k,v| @sprite_pieces[path].send(:"#{k}=", v) }
       self
     end
@@ -38,8 +46,8 @@ class Sprites
       @sprite_pieces.values[index]
     end
 
-    def css(configuration = ::Sprites.configuration, sprite = @sprite)
-      @sprite_pieces.values.map {|sp| sp.css(configuration, sprite)}.join("\n")
+    def css
+      @sprite_pieces.values.map {|sp| sp.css}.join("\n")
     end
   end
 end

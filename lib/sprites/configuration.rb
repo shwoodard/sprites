@@ -1,11 +1,13 @@
 class Sprites
   class Configuration
-    FIELDS = %w{sprites_path sprite_stylesheets_path sprite_pieces_path}
+    FIELDS = %w{definition_file autoload sprite_asset_path sprites_path sprite_stylesheets_path sprite_pieces_path}
 
     DEFAULT_CONFIGURATION = {
       'sprites_path' => 'public/images/sprites',
       'sprite_stylesheets_path' => 'public/stylesheets/sprites',
-      'sprite_pieces_path' => 'public/images/sprite_images'
+      'sprite_pieces_path' => 'public/images/sprite_images',
+      'sprite_asset_path' => '/images/sprites',
+      'autoload' => true
     }
 
     attr_accessor *FIELDS
@@ -14,12 +16,12 @@ class Sprites
       DEFAULT_CONFIGURATION.each {|k,v| self.send(:"#{k}=", v)}
     end
 
-    def config
-      self
+    def configure(options)
+      # p options
+      options.each {|k,v| self.send(:"#{k}=", v)}
     end
 
-    def configure(&blk)
-      instance_eval(&blk)
+    def config
       self
     end
 

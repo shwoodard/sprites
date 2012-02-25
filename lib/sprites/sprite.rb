@@ -4,6 +4,8 @@ require 'sprites/sprite_pieces'
 require 'sprites/sprite_piece'
 require 'sprites/stylesheet'
 
+require 'forwardable'
+
 class Sprites
   class Sprite
     class InvalidOrientation < StandardError; end
@@ -12,21 +14,24 @@ class Sprites
       HORIZONTAL = 2
     end
 
+    SUPPORTED_OPTIONS = %w{orientation path stylesheet_path url autoload css_prefix}
+
     DEFAULT_OPTIONS = {
       :orientation => Orientations::VERTICAL,
-      :path => lambda {|sprite| "#{sprite.name}.png" },
-      :stylesheet_path => lambda {|sprite| sprite.stylesheet.path },
-      :url => lambda {|sprite| sprite.stylesheet.url },
-      :auto_define => true,
       :css_prefix => ''
     }
 
-    attr_reader :name, :sprite_pieces, :stylesheet
-    attr_writer :path, :stylesheet_path, :url, :auto_define, :css_prefix
+    extend Forwardable
 
-    def initialize(name, configuration = ::Sprites.configuration)
-      @name, @configuration = name, configuration
-      @sprite_pieces = SpritePieces.new
+    attr_reader :name, :sprite_pieces, :stylesheet
+    attr_accessor *SUPPORTED_OPTIONS
+
+    def_delegator :@sprites, :configuration
+
+    def initialize(name, sprites)
+      @name, @sprites = name, sprites
+
+      @sprite_pieces = SpritePieces.new(@sprites, self)
       @stylesheet = Stylesheet.new(self)
     end
 
@@ -35,65 +40,84 @@ class Sprites
       @orientation = val
     end
 
-    [:path, :stylesheet_path, :url].each do |attribute|
-      eval <<-EVAL
-        def #{attribute}
-          val = @#{attribute} || DEFAULT_OPTIONS[:#{attribute}]
-          if val.respond_to?(:call)
-            val.call(self)
-          else
-            val
-          end
-        end
-      EVAL
+    def sprite_file_name
+      "#{name}.png"
     end
 
-    def method_missing(meth, *args)
-      unless [:orientation, :auto_define?, :css_prefix].include?(meth)
-        super
+    def stylesheet_file_name
+      sprite_file_name.gsub(/png$/, 'css')
+    end
+
+    def background_property_url
+      @url || File.join(@sprites.configuration.sprite_asset_path, sprite_file_name)
+    end
+
+    def path
+      File.join(@sprites.configuration.sprites_path, @path || sprite_file_name)
+    end
+
+    def stylesheet_path
+      File.join(@sprites.configuration.sprite_stylesheets_path, @stylesheet_path || stylesheet_file_name)
+    end
+
+    def do_autolaod?
+      if autoload == false
+        false
       else
-        instance_variable_get(:"@#{meth.to_s.chomp('?')}") || DEFAULT_OPTIONS[:"#{meth.to_s.chomp('?')}"]
+        @sprites.configuration.autoload
       end
     end
 
+    def css_prefix
+      @css_prefix || DEFAULT_OPTIONS[:css_prefix]
+    end
+
+    def orientation
+      @orientation || DEFAULT_OPTIONS[:orientation]
+    end
+
     def configure(options = {}, &blk)
-      options.symbolize_keys!.assert_valid_keys(*DEFAULT_OPTIONS.keys)
+      options.symbolize_keys!.assert_valid_keys(*(SUPPORTED_OPTIONS.map(&:intern)))
+
       options.each {|k,v| send(:"#{k}=", v)}
-      auto_define! if auto_define?
+
+      autoload! if do_autolaod?
+
       instance_eval(&blk) if block_given?
+
       self
     end
 
     def write_stylesheet(configuration, sprite_pieces = @sprite_pieces)
-      path = Stylesheet.stylesheet_full_path(configuration, stylesheet)
-      FileUtils.mkdir_p(File.dirname(path))
-      File.open path, 'w+' do |f|
-        f << stylesheet.css(configuration, self, sprite_pieces)
+      FileUtils.mkdir_p(File.dirname(stylesheet_path))
+      File.open stylesheet_path, 'w+' do |f|
+        f << stylesheet.css(sprite_pieces)
       end
     end
 
-    def sprite_piece(path, css_class, options = {})
+    ## 
+    # The +sprite_piece+ method adds sprite_piecess to the sprite
+    #
+    # === Example ===
+    # sprite :foo do
+    #   sprite_piece 'buttons/btn-black-default-28.png', 'a.black.wf_button > span, button.black.wf_submit span'
+    #
+    # Arguments:
+    # [String] the path to sprite piece relatie to config.sprite_pieces_path
+    # [String] (optional) the css selector to use for this sprite piece
+    #
+    # Options:
+    ##
+    def sprite_piece(path, css_class = nil, options = {})
+      css_class ||= File.basename(path, File.extname(path)).split('/').join('-')
       @sprite_pieces.add(path, css_class, options)
     end
 
-    def self.sprite_full_path(configuration, sprite)
-      File.join(configuration.sprites_path, sprite.path)
-    end
-
-    def self.sprite_css_path(configuration, sprite)
-      # TODO only works for rails and sprites dir is hard coded
-      # TODO what if there is another app in the path
-      "/assets/sprites/#{File.basename(sprite_full_path(configuration, sprite))}"
-    end
-
-    def auto_define!
-      Dir[File.join(@configuration.sprite_pieces_path, name.to_s, '*.png')].each do |path|
+    def autoload!
+      Dir[File.join(@sprites.configuration.sprite_pieces_path, name.to_s, '*.png')].each do |path|
         sprite_piece "#{name}/#{File.basename(path)}", ".#{File.basename(path, File.extname(path))}"
       end
     end
 
-    def stylesheet_path
-      @stylesheet_path || path.to_s.gsub(/png$/, 'css')
-    end
   end
 end

@@ -1,32 +1,43 @@
 class Sprites
   class Railtie < ::Rails::Railtie
+
+    def self.each_sprited_engine
+      (Rails.application.railties.engines + [Rails.application]).each do |engine|
+        next unless engine.config.respond_to?(:uses_sprites) && engine.config.uses_sprites
+        yield engine
+      end
+    end
+
     rake_tasks do
       desc "Generate sprites and stylesheets"
       task :sprites => :environment do
-        unless (def_file_path = Rails.root.join('config/sprites.rb')).exist?
-          raise Sprites::CliApplication::DefinitionFileNotFound
-        end
+        Sprites::Railtie.each_sprited_engine do |engine|
+          next if engine.class.superclass == Rails::Engine && !ENV['ENGINES']
 
-        require def_file_path
-        sprite_generator = Sprites::ChunkyPngGenerator.new(Sprites.configuration)
-        sprite_generator.generate(Sprites.application.sprites)
+          sprite_generator = Sprites::ChunkyPngGenerator.new(engine.class.sprites)
+          sprite_generator.generate
+        end
       end
     end
 
     initializer 'sprites._rails-configuration' do
-      assets_root = Rails.application.config.assets[:enabled] ? 'app/assets' : 'public'
+      Sprites::Railtie.each_sprited_engine do |engine|
+        assets_path = "app/assets"
 
-      Sprites.configure do
-        config.sprites_path = Rails.root.join(assets_root, 'images/sprites')
-        config.sprite_stylesheets_path = Rails.root.join(assets_root, 'stylesheets/sprites')
-        config.sprite_pieces_path = Rails.root.join(assets_root, 'images/sprite_images')
-      end
-    end
+        engine.class.cattr_accessor(:sprites) { Sprites.new }
+        engine.class.sprites.configuration.configure(
+          :sprites_path => engine.root.join(assets_path, 'images/sprites'),
+          :sprite_stylesheets_path => engine.root.join(assets_path, 'stylesheets/sprites'),
+          :sprite_pieces_path => engine.root.join(assets_path, 'images/sprite_images'),
+          :sprite_asset_path => '/assets/sprites'
+        )
 
-    initializer 'sprites.autoload' do
-      Dir[File.join(Sprites.configuration.sprite_pieces_path, '*')].each do |sprite_path|
-        sprite = Sprites::Sprite.new(File.basename(sprite_path).intern).configure
-        Sprites.application.sprites.add(sprite) if File.directory?(sprite_path)
+        default_definition_file = File.join(engine.config.root, 'config/sprites.rb')
+        if File.exists? default_definition_file        
+          engine.class.sprites.configuration.definition_file = default_definition_file
+        else
+          engine.class.sprites.configuration.autoload = true
+        end
       end
     end
   end

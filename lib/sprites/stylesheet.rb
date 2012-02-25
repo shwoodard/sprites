@@ -13,14 +13,10 @@ class Sprites
       @sprite.stylesheet_path
     end
 
-    def self.stylesheet_full_path(configuration, stylesheet)
-      File.join(configuration.sprite_stylesheets_path, stylesheet.path)
-    end
-
-    def css(configuration = Sprites.configuration, sprite = @sprite, sprite_pieces = @sprite_pieces)
+    def css(sprite_pieces = @sprite_pieces)
       return unless sprite_pieces.present?
 
-      sprite_pieces.css(configuration, sprite)
+      sprite_pieces.css
     end
   end
 end
