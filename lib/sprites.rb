@@ -94,6 +94,11 @@ class Sprites
   alias define instance_eval
   public :define
 
+  def reset!
+    clear
+    @configuration = Configuration.new
+    @loaded = false
+  end
 end
 
 require 'sprites/railtie' if defined?(Rails)
