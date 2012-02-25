@@ -1,12 +1,20 @@
 class Sprites
   class SpritePiece
-    attr_reader :path
-    attr_accessor :sprite, :css_selector, :x, :y, :width, :height, :top, :left
+    SUPPORTED_OPTIONS = %w(x y)
+
+    attr_reader :path, :sprite
+    attr_accessor :css_selector, :width, :height, :top, :left, *SUPPORTED_OPTIONS
     alias_method :selector, :css_selector
 
     def initialize(sprites, sprite, path)
       @sprites, @sprite = sprites, sprite
       @path = path
+    end
+
+    def configure(options)
+      options.symbolize_keys!.assert_valid_keys(*(SUPPORTED_OPTIONS.map(&:intern)))
+
+      options.each {|k,v| send(:"#{k}=", v) }
     end
 
     def background_property_url
