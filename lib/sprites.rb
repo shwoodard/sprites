@@ -37,6 +37,10 @@ class Sprites
     @sprites.values.each(&blk)
   end
 
+  def configure(options)
+    configuration.configure(options)
+  end
+
   # The +sprite+ method adds sprites to the sprites collection
   #
   # === Examples ===

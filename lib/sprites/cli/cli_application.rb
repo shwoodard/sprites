@@ -3,9 +3,11 @@ class Sprites
     class DefinitionFileNotFound < StandardError; end
 
     def self.run(def_file, configuration)
-      load def_file
-      sprite_generator = ChunkyPngGenerator.new(configuration)
-      sprite_generator.generate(Sprites.application.sprites)
+      sprites = Sprites.new
+      sprites.configure(configuration.to_options)
+      sprites.load
+      sprite_generator = ChunkyPngGenerator.new(sprites)
+      sprite_generator.generate
     end
   end
 end

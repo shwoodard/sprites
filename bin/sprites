@@ -12,5 +12,5 @@ begin
   
   Sprites::CliApplication.run(sprite_definition_file_path, configuration)
 rescue Sprites::CliApplication::DefinitionFileNotFound
-  abort 'No Sprite Definition File found.  Please supply a path or place your definition file in `pwd` or `pwd/config`'
+  abort 'No Sprite Definition File found.  Please supply a path or place your definition file in `pwd/config`'
 end
