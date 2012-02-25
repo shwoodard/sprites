@@ -16,7 +16,6 @@ class Sprites
       sprites.configuration
     end
 
-    # TODO probably refactor to make this class take a Sprites instance.
     def generate
       sprites.load
 
@@ -38,8 +37,8 @@ class Sprites
         # end
         # 
 
-        sprite_path = File.join(configuration.sprites_path, sprite.path)
-        sprite_stylesheet_path = File.join(configuration.sprite_stylesheets_path, sprite.stylesheet_path)
+        sprite_path = sprite.path
+        sprite_stylesheet_path = sprite.stylesheet_path
         
         orientation = sprite.orientation
         sprite_pieces = sprite.sprite_pieces

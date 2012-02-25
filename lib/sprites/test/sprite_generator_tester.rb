@@ -26,12 +26,11 @@ class Sprites
     private
     def test_generate(gem_root = GEM_ROOT)
       sprite_pieces = @sprite.sprite_pieces
-      sprite_image = Image.read(Sprite.sprite_full_path(configuration, sprite)).first
+      sprite_image = Image.read(sprite.path).first
 
-      stylesheet_path = Stylesheet.stylesheet_full_path(configuration, sprite.stylesheet)
-      stylesheet_absolute_path = gem_root.join(stylesheet_path)
+      stylesheet_path = sprite.stylesheet.path
       parser = CssParser::Parser.new
-      parser.load_file!(File.basename(stylesheet_absolute_path), File.dirname(stylesheet_absolute_path), :screen)
+      parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
 
       sprite_pieces_with_selector_data = []
 

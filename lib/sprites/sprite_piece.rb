@@ -9,8 +9,8 @@ class Sprites
       @path = path
     end
 
-    def asset_path
-      @sprite.asset_path
+    def background_property_url
+      @sprite.background_property_url
     end
 
     def source_path
@@ -24,7 +24,7 @@ class Sprites
   display:block;
   width:#{width}px;
   height:#{height}px;
-  background:url('#{asset_path}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
+  background:url('#{background_property_url}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
 }
       CSS
     end

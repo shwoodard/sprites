@@ -6,7 +6,7 @@ class Sprites
       'sprites_path' => 'public/images/sprites',
       'sprite_stylesheets_path' => 'public/stylesheets/sprites',
       'sprite_pieces_path' => 'public/images/sprite_images',
-      'sprite_asset_path' => '/images/sprites',
+      'sprite_asset_path' => 'images/sprites',
       'autoload' => true
     }
 

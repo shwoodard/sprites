@@ -31,14 +31,14 @@ describe "When creating sprites and stylesheets in a rails app", :rails => true 
     tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
     tester.should be_accurate
 
-    FileUtils.rm Sprites::Sprite.sprite_full_path(sprites.configuration, sprites[:buttons])
-    FileUtils.rm Sprites::Stylesheet.stylesheet_full_path(sprites.configuration, sprites[:buttons].stylesheet)
+    FileUtils.rm sprites[:buttons].path
+    FileUtils.rm sprites[:buttons].stylesheet_path
 
     tester = Sprites::SpriteGeneratorTester.new(sprites[:bas], sprites.configuration)
     tester.should be_accurate
 
-    FileUtils.rm Sprites::Sprite.sprite_full_path(sprites.configuration, sprites[:bas])
-    FileUtils.rm Sprites::Stylesheet.stylesheet_full_path(sprites.configuration, sprites[:bas].stylesheet)
+    FileUtils.rm sprites[:bas].path
+    FileUtils.rm sprites[:bas].stylesheet_path
   end
 
   it 'should autoload sprites' do

@@ -26,7 +26,8 @@ class Sprites
         engine.config.sprites.configuration.configure(
           :sprites_path => engine.root.join(assets_path, 'images/sprites'),
           :sprite_stylesheets_path => engine.root.join(assets_path, 'stylesheets/sprites'),
-          :sprite_pieces_path => engine.root.join(assets_path, 'images/sprite_images')
+          :sprite_pieces_path => engine.root.join(assets_path, 'images/sprite_images'),
+          :sprite_asset_path => '/assets/sprites'
         )
 
         default_definition_file = File.join(engine.config.root, 'config/sprites.rb')
