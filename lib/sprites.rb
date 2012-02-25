@@ -16,7 +16,7 @@ class Sprites
 
   include Enumerable
   extend Forwardable
-  def_delegators :@sprites, :clear, :empty?, :count
+  def_delegators :@sprites, :clear, :empty?, :count, :[]
 
   attr_reader :configuration
 
