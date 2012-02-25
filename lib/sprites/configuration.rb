@@ -17,6 +17,7 @@ class Sprites
     end
 
     def configure(options)
+      # p options
       options.each {|k,v| self.send(:"#{k}=", v)}
     end
 

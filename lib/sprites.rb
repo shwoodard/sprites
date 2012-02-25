@@ -76,12 +76,12 @@ class Sprites
     if configuration.definition_file
       load_file configuration.definition_file
     elsif configuration.autoload
-      autoload
+      auto_load
     end
     @loaded = true
   end
 
-  def autoload
+  def auto_load
     Dir[File.join(configuration.sprite_pieces_path, '*')].each do |sprite_path|
       sprite(File.basename(sprite_path).intern) if File.directory?(sprite_path)
     end
