@@ -3,8 +3,11 @@ require 'sprites/sprite_pieces'
 
 describe Sprites::SpritePieces do
 
+  let (:sprites) { Sprites.new }
+
   before do
-    @sprite_pieces = Sprites::SpritePieces.new
+    sprite = sprites.sprite(:foo)
+    @sprite_pieces = Sprites::SpritePieces.new(sprites, sprite)
 
     sprite_pieces = [
       ['foo.png', 'foo.css'],
