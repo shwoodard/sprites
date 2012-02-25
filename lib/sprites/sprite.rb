@@ -84,6 +84,8 @@ class Sprites
       autoload! if do_autolaod?
 
       instance_eval(&blk) if block_given?
+
+      self
     end
 
     def write_stylesheet(configuration, sprite_pieces = @sprite_pieces)
