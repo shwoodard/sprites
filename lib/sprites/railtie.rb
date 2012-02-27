@@ -49,7 +49,7 @@ class Sprites
     end
 
     def self.config_field_name_with_equals(engine_name)
-      :"sprites_for_#{engine_name}="
+      :"#{config_field_name(engine_name)}="
     end
   end
 end
