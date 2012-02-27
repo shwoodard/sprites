@@ -6,7 +6,8 @@ class Sprites
         Sprites::Railtie.each_sprited_engine do |engine|
           next if engine.class.superclass == Rails::Engine && !ENV['ENGINES']
 
-          sprite_generator = Sprites::ChunkyPngGenerator.new(engine.config.send(Sprites::Railtie.config_field_name(engine.engine_name)))
+          sprites = engine.config.send(Sprites::Railtie.config_field_name(engine.engine_name))
+          sprite_generator = Sprites::ChunkyPngGenerator.new(sprites)
           sprite_generator.generate
         end
       end
