@@ -43,7 +43,7 @@ For usage
     sprites --help
 
 
-## In your rails app
+## In your Rails app
 
 #### Gemfile
 
@@ -58,6 +58,31 @@ config.uses_sprites = true
 ```
 
 Optionally include a `config/sprites.rb` (see above).  Otherwise _Sprites_ will use it's auto-load feature.  Example, if you have `app/assets/images/sprite_images/foo/bar.png` and `app/assets/images/sprite_images/foo/bas.png`, _Sprites_ will create `app/assets/stylesheets/sprites/foo.css` and `app/assets/images/sprites/foo.png`.  The class for `bar.png` will be `.bar` and for `bas.png`, `.bas`, etc.
+
+
+    rake sprites
+
+to generate.
+
+## In your Rails Engine
+
+#### engine.rb
+
+``` ruby
+module MyGem
+  class Engine < Rails::Engine
+    config.uses_sprites = true
+  end
+end
+```
+
+Use `app/assets` in your gem like you would your rails app and use the asset pipeline.
+
+From your rails root
+
+    ENGINES=true rake sprites
+
+Note: this will generate your sprites for your _Sprites_ enabled Engines _and_ your _Sprites_ enabled Rails app.
 
 ## Contributing
 
