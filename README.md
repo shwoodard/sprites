@@ -59,3 +59,10 @@ config.uses_sprites = true
 
 Optionally include a `config/sprites.rb` (see above).  Otherwise _Sprites_ will use it's auto-load feature.  Example, if you have `app/assets/images/sprite_images/foo/bar.png` and `app/assets/images/sprite_images/foo/bas.png`, _Sprites_ will create `app/assets/stylesheets/sprites/foo.css` and `app/assets/images/sprites/foo.png`.  The class for `bar.png` will be `.bar` and for `bas.png`, `.bas`, etc.
 
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
