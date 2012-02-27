@@ -14,8 +14,8 @@ Given(/^it contains sprite images$/) do
   Dir['public/images/sprite_images/**/*.png'].should_not be_empty
 end
 
-When(/^I run the executable "([^"]*)"$/) do |bin|
-  `#{GEM_ROOT}/bin/#{bin}`
+When /^I run the executable "([^"]*)" with flags "([^"]*)"$/ do |bin, flags|
+  `#{GEM_ROOT}/bin/#{bin} #{flags}`
   $?.to_i.should be(0)
 end
 
@@ -26,11 +26,13 @@ Then(/^I should get valid sprites$/) do
   sprite_definition_file_path = options.definition_file_path
   configuration = Sprites::Configuration.new_for_command_line_options(options.options)
 
-  require sprite_definition_file_path
+  sprites = Sprites.new
+  sprites.configure configuration.to_options
+  sprites.load
 
-  tester = Sprites::SpriteGeneratorTester.new(Sprites.application.sprites[:buttons], configuration)
+  tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
   tester.should be_accurate
 
-  FileUtils.rm Sprites::Sprite.sprite_full_path(configuration, Sprites.application.sprites[:buttons])
-  FileUtils.rm Sprites::Stylesheet.stylesheet_full_path(configuration, Sprites.application.sprites[:buttons].stylesheet)
+  FileUtils.rm sprites[:buttons].path
+  FileUtils.rm sprites[:buttons].stylesheet_path
 end
