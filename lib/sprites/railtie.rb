@@ -1,17 +1,5 @@
 class Sprites
   class Railtie < ::Rails::Railtie
-
-    def self.each_sprited_engine
-      (Rails.application.railties.engines + [Rails.application]).each do |engine|
-        next unless engine.config.respond_to?(:uses_sprites) && engine.config.uses_sprites
-        yield engine
-      end
-    end
-
-    def self.cattr_accessor_name(engine_name)
-      :"sprites_for_#{engine_name}"
-    end
-
     rake_tasks do
       desc "Generate sprites and stylesheets"
       task :sprites => :environment do
@@ -47,6 +35,19 @@ class Sprites
           sprites.configuration.autoload = true
         end
       end
+    end
+
+    private
+
+    def self.each_sprited_engine
+      (Rails.application.railties.engines + [Rails.application]).each do |engine|
+        next unless engine.config.respond_to?(:uses_sprites) && engine.config.uses_sprites
+        yield engine
+      end
+    end
+
+    def self.cattr_accessor_name(engine_name)
+      :"sprites_for_#{engine_name}"
     end
   end
 end
