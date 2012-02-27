@@ -8,8 +8,8 @@ Sprites is a library that let's you define the sprites for your application with
 sprite :bas
 
 sprite :buttons, :path => "buttons.png", :stylesheet_path => "buttons.css", :autoload => false do
-  sprite_piece 'buttons/btn-black-default-28.png', 'a.black.wf_button > span, button.black.wf_submit span'
-  sprite_piece 'buttons/btn-black-default-cap-28.png', 'a.black.wf_button, button.black.wf_submit', :x => 'right'
+  sprite_piece 'buttons/btn-black-default-28.png', 'a.black.button > span, button.black.submit span'
+  sprite_piece 'buttons/btn-black-default-cap-28.png', 'a.black.button, button.black.submit', :x => 'right'
   ...
 end
 ```
