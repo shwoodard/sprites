@@ -8,13 +8,19 @@ class Sprites
       end
     end
 
+    def self.cattr_accessor_name(engine_name)
+      :"sprites_for_#{engine_name}"
+    end
+
     rake_tasks do
       desc "Generate sprites and stylesheets"
       task :sprites => :environment do
         Sprites::Railtie.each_sprited_engine do |engine|
           next if engine.class.superclass == Rails::Engine && !ENV['ENGINES']
 
-          sprite_generator = Sprites::ChunkyPngGenerator.new(engine.class.sprites)
+          sprites = engine.class.send(Sprites::Railtie.cattr_accessor_name(engine.engine_name))
+
+          sprite_generator = Sprites::ChunkyPngGenerator.new(sprites)
           sprite_generator.generate
         end
       end
@@ -24,8 +30,10 @@ class Sprites
       Sprites::Railtie.each_sprited_engine do |engine|
         assets_path = "app/assets"
 
-        engine.class.cattr_accessor(:sprites) { Sprites.new }
-        engine.class.sprites.configuration.configure(
+        sprites = Sprites.new
+
+        engine.class.cattr_accessor(Sprites::Railtie.cattr_accessor_name(engine.engine_name)) { sprites }
+        sprites.configuration.configure(
           :sprites_path => engine.root.join(assets_path, 'images/sprites'),
           :sprite_stylesheets_path => engine.root.join(assets_path, 'stylesheets/sprites'),
           :sprite_pieces_path => engine.root.join(assets_path, 'images/sprite_images'),
@@ -34,9 +42,9 @@ class Sprites
 
         default_definition_file = File.join(engine.config.root, 'config/sprites.rb')
         if File.exists? default_definition_file        
-          engine.class.sprites.configuration.definition_file = default_definition_file
+          sprites.configuration.definition_file = default_definition_file
         else
-          engine.class.sprites.configuration.autoload = true
+          sprites.configuration.autoload = true
         end
       end
     end

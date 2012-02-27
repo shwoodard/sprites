@@ -6,6 +6,10 @@ require 'fixtures/rails_project1/config/application'
 
 describe "When creating sprites and stylesheets in a rails app", :rails => true do
 
+  let(:application_sprites) { SpritesRailsTestApp::Application.sprites_for_sprites_rails_test_app_application }
+
+  let(:engine_sprites) { FakeEngine::Engine.sprites_for_fake_engine_engine }
+
   before :all do
     SpritesRailsTestApp::Application.initialize!
   end
@@ -14,15 +18,7 @@ describe "When creating sprites and stylesheets in a rails app", :rails => true 
     # We only want to do this once, otherwise we get a new config that wasn't
     # initialized by the rails initializers. It's excluded in the after filter
     # in spec_helper for rails specs.
-    SpritesRailsTestApp::Application.sprites.clear
-  end
-
-  def application_sprites
-    SpritesRailsTestApp::Application.sprites
-  end
-
-  def engine_sprites
-    FakeEngine::Engine.sprites
+    [engine_sprites, application_sprites].each {|sprites| sprites.clear }
   end
 
   def each_engine
