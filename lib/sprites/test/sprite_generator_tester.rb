@@ -12,11 +12,11 @@ class Sprites
 
     Selector = Struct.new(:selector, :x, :y, :width, :height)
 
-    attr_reader :sprite, :configuration
-    private :sprite, :configuration
+    attr_reader :sprite
+    private :sprite
 
-    def initialize(sprite, configuration)
-      @sprite, @configuration = sprite, configuration
+    def initialize(sprite)
+      @sprite = sprite
     end
 
     def accurate?

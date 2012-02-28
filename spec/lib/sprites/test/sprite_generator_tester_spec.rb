@@ -12,7 +12,7 @@ describe Sprites::SpriteGeneratorTester do
         :sprite_pieces_path => 'spec/fixtures/known_good/sprite_images'
       )
       define_buttons_sprite
-      tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
+      tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons])
       tester.should be_accurate
     end
   end

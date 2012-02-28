@@ -30,7 +30,7 @@ Then(/^I should get valid sprites$/) do
   sprites.configure configuration.to_options
   sprites.load
 
-  tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
+  tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons])
   tester.should be_accurate
 
   FileUtils.rm sprites[:buttons].path

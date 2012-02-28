@@ -15,7 +15,7 @@ describe Sprites::ChunkyPngGenerator do
     sprite_generator = Sprites::ChunkyPngGenerator.new(sprites)
     sprite_generator.generate
 
-    tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
+    tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons])
     tester.should be_accurate
   end
 end

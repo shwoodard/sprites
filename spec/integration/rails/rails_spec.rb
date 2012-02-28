@@ -36,13 +36,13 @@ describe "When creating sprites and stylesheets in a rails app", :rails => true 
     Rake::Task["sprites"].invoke
 
     each_engine do |sprites|
-      tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons], sprites.configuration)
+      tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons])
       tester.should be_accurate
 
       FileUtils.rm sprites[:buttons].path
       FileUtils.rm sprites[:buttons].stylesheet_path
 
-      tester = Sprites::SpriteGeneratorTester.new(sprites[:bas], sprites.configuration)
+      tester = Sprites::SpriteGeneratorTester.new(sprites[:bas])
       tester.should be_accurate
 
       FileUtils.rm sprites[:bas].path
