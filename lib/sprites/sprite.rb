@@ -2,7 +2,6 @@ require 'fileutils'
 require 'active_support/core_ext'
 require 'sprites/sprite_pieces'
 require 'sprites/sprite_piece'
-require 'sprites/stylesheet'
 
 require 'forwardable'
 
@@ -23,7 +22,7 @@ class Sprites
 
     extend Forwardable
 
-    attr_reader :name, :sprite_pieces, :stylesheet
+    attr_reader :name, :sprite_pieces
     attr_accessor *SUPPORTED_OPTIONS
 
     def_delegator :@sprites, :configuration
@@ -32,7 +31,6 @@ class Sprites
       @name, @sprites = name, sprites
 
       @sprite_pieces = SpritePieces.new(@sprites, self)
-      @stylesheet = Stylesheet.new(self)
     end
 
     def orientation=(val)
@@ -91,7 +89,7 @@ class Sprites
     def write_stylesheet(configuration, sprite_pieces = @sprite_pieces)
       FileUtils.mkdir_p(File.dirname(stylesheet_path))
       File.open stylesheet_path, 'w+' do |f|
-        f << stylesheet.css(sprite_pieces)
+        f << sprite_pieces.css
       end
     end
 

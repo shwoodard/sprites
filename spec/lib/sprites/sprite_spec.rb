@@ -49,12 +49,6 @@ describe Sprites::Sprite do
     end
   end
 
-  context '#stylesheet' do
-    it 'should return a Stylesheet' do
-      @sprite.stylesheet.should be_a(Sprites::Stylesheet)
-    end
-  end
-
   context '#stylesheet_path' do
     it 'should return the stylesheet path' do
       @sprite.stylesheet_path.should == 'public/stylesheets/sprites/foo.css'
