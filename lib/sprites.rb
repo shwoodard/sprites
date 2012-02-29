@@ -132,6 +132,7 @@ class Sprites
     all_files.each do |output, inputs|
       FileList[inputs]
       file output => inputs do
+        # XXX this will currently run once per output, we need to fix that.
         generate
       end
     end
