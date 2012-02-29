@@ -103,6 +103,40 @@ class Sprites
     @configuration = Configuration.new
     @loaded = false
   end
+
+  def all_files
+    files = {}
+
+    all_files = []
+    if configuration.definition_file
+      files[configuration.definition_file] = all_files
+    end
+
+    @sprites.each do |name, sprite|
+      all_files.concat sprite.all_sprite_piece_files
+      files[sprite.stylesheet_path] = sprite.all_sprite_piece_files
+      files[sprite.path] = sprite.all_sprite_piece_files
+    end
+
+    all_files.uniq!
+
+    files
+  end
+
+  def generate(generator = configuration.generator)
+    generator.new(self).generate
+  end
+
+  def define_file_tasks(task_name = :sprites)
+    extend Rake::DSL
+    all_files.each do |output, inputs|
+      FileList[inputs]
+      file output => inputs do
+        generate
+      end
+    end
+    task task_name => all_files.keys
+  end
 end
 
 require 'sprites/railtie' if defined?(Rails)

@@ -39,6 +39,12 @@ describe Sprites::Configuration do
     end
   end
 
+  context "#generator" do
+    it 'should default to the ChunkyPngGenerator' do
+      config.generator.should == Sprites::ChunkyPngGenerator
+    end
+  end
+
   context '#configured?' do
     it 'should not be configured if no defaults have changed' do
       Sprites::Configuration.new.should_not be_configured

@@ -76,4 +76,14 @@ describe Sprites::Sprite do
       sprite.background_property_url.should == '/assets/sprites/foo.png'
     end
   end
+
+  context '#all_sprite_piece_files' do
+    it 'should return an array of all of the images that make up this sprite' do
+      10.times do |i|
+        @sprite.sprite_piece("test#{i}.png", ".test#{i}")
+      end
+      expected = Array.new(10) { |i| "public/images/sprite_images/test#{i}.png" }
+      @sprite.all_sprite_piece_files.should == expected
+    end
+  end
 end

@@ -1,7 +1,7 @@
 class Sprites
   class Configuration
     PATH_FIELDS = %w{definition_file sprites_path sprite_stylesheets_path sprite_pieces_path}
-    OTHER_FIELDS = %w{definition_file autoload sprite_asset_path}
+    OTHER_FIELDS = %w{definition_file autoload sprite_asset_path generator}
     FIELDS = PATH_FIELDS + OTHER_FIELDS
 
     DEFAULT_CONFIGURATION = {
@@ -9,6 +9,7 @@ class Sprites
       'sprite_stylesheets_path' => 'public/stylesheets/sprites',
       'sprite_pieces_path' => 'public/images/sprite_images',
       'sprite_asset_path' => '/images/sprites',
+      'generator' => ChunkyPngGenerator,
       'autoload' => true
     }
 
