@@ -31,9 +31,7 @@ class Sprites
     end
 
     def [](val)
-      @sprite_pieces.has_key?(val) ?
-        @sprite_pieces[val] :
-        nil
+      @sprite_pieces[val] if @sprite_pieces.has_key?(val)
     end
 
     def element_at(index)

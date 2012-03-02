@@ -73,7 +73,7 @@ class Sprites
 
     def parser
       @parser ||= begin
-        stylesheet_path = sprite.stylesheet.path
+        stylesheet_path = sprite.stylesheet_path
         parser = CssParser::Parser.new
         parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
         parser

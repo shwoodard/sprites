@@ -96,4 +96,79 @@ describe Sprites do
       sprites.should == test_sprites
     end
   end
+
+  context "#all_files" do
+    it "should provide a hash of all output files, associated with all input files" do
+      @sprites.configuration.configure(
+        :sprites_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprites'),
+        :sprite_stylesheets_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/stylesheets/sprites'),
+        :sprite_pieces_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprite_images')
+      )
+
+      @sprites.sprite(:bas)
+      @sprites[:bas].sprite_pieces.count.should be(5)
+      @sprites[:bas].sprite_pieces.all.map(&:css_selector).should == %w(.bar .bas .bkgd_main_copy .foo .fubar)
+
+      png = File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprites/bas.png')
+      css = File.join(GEM_ROOT, 'spec/fixtures/project2/public/stylesheets/sprites/bas.css')
+      @sprites.all_files.keys.sort.should == [png, css]
+
+      pieces = %w[
+        bas/bar.png bas/bas.png bas/bkgd_main_copy.png bas/foo.png bas/fubar.png
+      ]
+      expected_pngs = pieces.map { |path| File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprite_images', path) }
+
+      @sprites.all_files[png].should == expected_pngs
+      @sprites.all_files[css].should == expected_pngs
+
+
+      @sprites.configuration.configure(:definition_file => 'config/sprites.rb')
+      @sprites.all_files.keys.sort.should == [png, css, 'config/sprites.rb']
+
+      @sprites.all_files['config/sprites.rb'].should == expected_pngs
+    end
+  end
+
+  context "#define_file_tasks" do
+    let(:rake_app) { Rake::Application.new }
+    before { @old_rake_app, Rake.application = Rake.application, rake_app }
+    after  { Rake.application = @old_rake_app }
+
+    before do
+      @sprites.configuration.configure(
+        :sprites_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprites'),
+        :sprite_stylesheets_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/stylesheets/sprites'),
+        :sprite_pieces_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprite_images')
+      )
+
+      @sprites.sprite(:bas)
+      @sprites[:bas].sprite_pieces.count.should be(5)
+      @sprites[:bas].sprite_pieces.all.map(&:css_selector).should == %w(.bar .bas .bkgd_main_copy .foo .fubar)
+    end
+
+    it 'should define file tasks for each output file, depending on each input file' do
+      @sprites.define_file_tasks
+
+      @sprites.all_files.each do |output, inputs|
+        Rake::Task[output].prerequisites.should == inputs
+      end
+      Rake::Task[:sprites].prerequisites.should == @sprites.all_files.keys
+
+      @sprites.define_file_tasks(:foo)
+      Rake::Task[:foo].prerequisites.should == @sprites.all_files.keys
+    end
+  end
+
+  context "#generate" do
+    it "should instance the given generator and call #generate" do
+      given_sprites, generated = nil, nil
+      mock_generator = Class.new do
+        define_method(:initialize) { |sprites| given_sprites = sprites }
+        define_method(:generate) { generated = true }
+      end
+      @sprites.generate(mock_generator)
+      given_sprites.should == @sprites
+      generated.should be_true
+    end
+  end
 end
