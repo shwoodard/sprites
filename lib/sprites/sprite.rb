@@ -119,6 +119,10 @@ class Sprites
       end
     end
 
+    def all_sprite_pieces
+      @sprite_pieces.all
+    end
+
     def all_sprite_piece_files
       @sprite_pieces.map do |sp|
         sp.source_path
