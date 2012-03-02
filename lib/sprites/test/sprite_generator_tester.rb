@@ -28,10 +28,6 @@ class Sprites
       sprite_pieces = @sprite.sprite_pieces
       sprite_image = Image.read(sprite.path).first
 
-      stylesheet_path = sprite.stylesheet.path
-      parser = CssParser::Parser.new
-      parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
-
       sprite_pieces_with_selector_data = []
 
       parser.each_rule_set do |rs|
@@ -74,5 +70,15 @@ class Sprites
       sprite_image.destroy! if sprite_image
       sprite_image = nil
     end
+
+    def parser
+      @parser ||= begin
+        stylesheet_path = sprite.stylesheet.path
+        parser = CssParser::Parser.new
+        parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
+        parser
+      end
+    end
+
   end
 end
