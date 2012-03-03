@@ -19,7 +19,6 @@ describe Sprites::SpritePiece do
 
   context '#css' do
     it 'should return the css for the sprite piece' do
-      pending "how make the heredoc a regexp for the timestamp?"
       sprites.configuration.sprites_path = 'tmp/images/sprites'
       
       sprites.sprite(:foo).configure do
