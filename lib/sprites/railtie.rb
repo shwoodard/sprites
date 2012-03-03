@@ -1,15 +1,14 @@
 class Sprites
   class Railtie < ::Rails::Railtie
     rake_tasks do
-      desc "Generate sprites and stylesheets"
-      task :sprites => :environment do
-        Sprites::Railtie.each_sprited_engine do |engine|
-          next if engine.class.superclass == Rails::Engine && !ENV['ENGINES']
+      Sprites::Railtie.each_sprited_engine do |engine|
+        engine_task_name = "sprites:#{engine.engine_name}"
 
-          sprites = engine.config.send(Sprites::Railtie.config_field_name(engine.engine_name))
-          sprite_generator = Sprites::ChunkyPngGenerator.new(sprites)
-          sprite_generator.generate
-        end
+        desc "Generate sprites and stylesheets"
+        task :sprites => [:environment, engine_task_name]
+
+        sprites = engine.config.send(Sprites::Railtie.config_field_name(engine.engine_name))
+        sprites.define_file_tasks(engine_task_name)
       end
     end
 
