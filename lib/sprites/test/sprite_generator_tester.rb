@@ -23,14 +23,18 @@ class Sprites
       test_generate.all? {|x| x == 0}
     end
 
+    def background_property_urls
+      background_property_urls = []
+      parser.each_rule_set do |rs|
+        background_property_urls << rs['background'][%r{url\('?(.+)(?:\?\d+)(?:')\)}, 1]
+      end
+      background_property_urls
+    end
+
     private
     def test_generate(gem_root = GEM_ROOT)
       sprite_pieces = @sprite.sprite_pieces
       sprite_image = Image.read(sprite.path).first
-
-      stylesheet_path = sprite.stylesheet_path
-      parser = CssParser::Parser.new
-      parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
 
       sprite_pieces_with_selector_data = []
 
@@ -74,5 +78,13 @@ class Sprites
       sprite_image.destroy! if sprite_image
       sprite_image = nil
     end
+
+    def parser
+      stylesheet_path = sprite.stylesheet_path
+      parser = CssParser::Parser.new
+      parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
+      parser
+    end
+
   end
 end

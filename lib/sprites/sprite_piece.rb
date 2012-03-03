@@ -32,7 +32,7 @@ class Sprites
   display:block;
   width:#{width}px;
   height:#{height}px;
-  background:url('#{background_property_url}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
+  background:url('#{background_property_url}?#{Time.now.to_i}') no-repeat #{x || negative_pixelize(left)} #{y || negative_pixelize(top)};
 }
       CSS
     end
