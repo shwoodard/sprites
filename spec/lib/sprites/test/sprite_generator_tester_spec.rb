@@ -6,7 +6,6 @@ describe Sprites::SpriteGeneratorTester do
 
   before do
     sprites.configuration.configure(
-      :sprites_path => 'spec/fixtures/known_good/sprites',
       :sprite_pieces_path => 'spec/fixtures/known_good/sprite_images'
     )
    define_buttons_sprite
@@ -15,6 +14,7 @@ describe Sprites::SpriteGeneratorTester do
   describe "#accurate" do
     it 'should return 0 for known good sprite' do
       sprites.configuration.configure(
+        :sprites_path => 'spec/fixtures/known_good/sprites',
         :sprite_stylesheets_path => 'spec/fixtures/known_good/stylesheets'
       )
       tester = Sprites::SpriteGeneratorTester.new(sprites[:buttons])
@@ -26,6 +26,7 @@ describe Sprites::SpriteGeneratorTester do
     it "should match" do
       sprites.configuration.configure(
         :sprite_asset_path => '/assets/sprites',
+        :sprites_path => 'tmp/images/sprites',
         :sprite_stylesheets_path => 'tmp/stylesheets/sprites'
       )
 
