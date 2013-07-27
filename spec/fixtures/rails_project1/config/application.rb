@@ -1,7 +1,7 @@
 $: << File.expand_path('../../..', __FILE__)
 
 # Pick the frameworks you want:
-require "active_record/railtie"
+#require "active_record/railtie"
 require "action_controller/railtie"
 # require "action_mailer/railtie"
 # require "active_resource/railtie"
