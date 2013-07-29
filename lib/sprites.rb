@@ -26,6 +26,13 @@ class Sprites
     @sprites = Hash.new do |sprites, name|
       sprites[name] = Sprite.new(name, self)
     end
+
+    begin
+      require 'rake/dsl'
+      define_file_tasks
+    rescue LoadError
+    end
+
     @loaded = false
   end
 
@@ -136,7 +143,7 @@ class Sprites
         generate
       end
     end
-    task task_name => all_files.keys
+    task task_name => all_files.keys.unshift(:environment)
   end
 end
 

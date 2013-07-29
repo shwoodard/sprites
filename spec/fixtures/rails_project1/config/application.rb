@@ -6,6 +6,7 @@ require "action_controller/railtie"
 # require "action_mailer/railtie"
 # require "active_resource/railtie"
 require "sprockets/railtie"
+require 'sprites'
 require 'fake_engine/lib/fake_engine'
 
 if defined?(Bundler)

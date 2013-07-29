@@ -7,7 +7,6 @@ GEM_ROOT = Pathname(File.expand_path('../..', __FILE__))
 Dir[File.join(GEM_ROOT, 'spec/support/*.rb')].each {|support_file| require support_file}
 
 RSpec.configure do |config|
-  config.mock_with :mocha
   config.include SpritesHelper
   config.after(:each, :rails => false) { Sprites.reset! }
 end

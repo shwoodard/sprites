@@ -27,7 +27,6 @@ describe Sprites do
     end
 
     it 'should add a sprite defined by only a symbol by using directory conventions and filenames for classes' do
-      
       @sprites.configuration.configure(
         :sprites_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/images/sprites'),
         :sprite_stylesheets_path => File.join(GEM_ROOT, 'spec/fixtures/project2/public/stylesheets/sprites'),
@@ -152,10 +151,10 @@ describe Sprites do
       @sprites.all_files.each do |output, inputs|
         Rake::Task[output].prerequisites.should == inputs
       end
-      Rake::Task[:sprites].prerequisites.should == @sprites.all_files.keys
+      Rake::Task[:sprites].prerequisites.should == ["environment"] + @sprites.all_files.keys
 
       @sprites.define_file_tasks(:foo)
-      Rake::Task[:foo].prerequisites.should == @sprites.all_files.keys
+      Rake::Task[:foo].prerequisites.should == ["environment"] + @sprites.all_files.keys
     end
   end
 

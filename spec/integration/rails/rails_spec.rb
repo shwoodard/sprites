@@ -10,10 +10,6 @@ describe "When creating sprites and stylesheets in a rails app", :rails => true 
 
   let(:engine_sprites) { FakeEngine::Engine.config.sprites_for_fake_engine_engine }
 
-  before :all do
-    SpritesRailsTestApp::Application.initialize!
-  end
-
   after :all do
     # We only want to do this once, otherwise we get a new config that wasn't
     # initialized by the rails initializers. It's excluded in the after filter

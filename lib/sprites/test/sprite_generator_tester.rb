@@ -1,5 +1,6 @@
 require 'rubygems'
-require 'css_parser'
+require 'csspool'
+
 begin
   require 'rmagick'
 rescue LoadError
@@ -25,8 +26,8 @@ class Sprites
 
     def background_property_urls
       background_property_urls = []
-      parser.each_rule_set do |rs|
-        background_property_urls << rs['background'][%r{url\('?(.+)(?:\?\d+)(?:')\)}, 1]
+      parser.rule_sets.each do |rule_set|
+        background_property_urls << uri_expression_for_background(rule_set.declarations).split('?')[0]
       end
       background_property_urls
     end
@@ -38,26 +39,27 @@ class Sprites
 
       sprite_pieces_with_selector_data = []
 
-      parser.each_rule_set do |rs|
-        rules_set = Set.new(rs.selectors)
-        rules_set.map!(&:strip)
+      parser.rule_sets.each do |rule_set|
+        rules_set = Set.new(rule_set.selectors.map(&:to_s))
+        #rules_set.map!(&:strip)
         sprite_piece = sprite_pieces.find do |sp|
           rules_set == Set.new(sp.css_selector.split(%r{,\s*}))
         end
-        width = rs['width'][%r{\s*(\d+)(?:px)?;?$}, 1].to_i
-        height = rs['height'][%r{\s*(\d+)(?:px)?;?$}, 1].to_i
-        background = rs['background'][%r{\s*([^;]+)}, 1]
+
+        width = declaration_for_property(rule_set.declarations, 'width')[%r{\s*(\d+)(?:px)?;?$}, 1].to_i
+        height = declaration_for_property(rule_set.declarations, 'height')[%r{\s*(\d+)(?:px)?;?$}, 1].to_i
+        background = declaration_for_property(rule_set.declarations, 'background')[%r{\s*([^;]+)}, 1]
         x = background[%r{\s-?(\d+)(?:px)?\s}, 1].to_i
         y = background[%r{\s-?(\d+)(?:px)?$}, 1].to_i
-        sprite_pieces_with_selector_data << [sprite_piece, Selector.new(rs.selectors, x, y, width, height)]
+        sprite_pieces_with_selector_data << [sprite_piece, Selector.new(rule_set.selectors, x, y, width, height)]
       end
 
-      percent_diferences = sprite_pieces_with_selector_data.map do |sp, selector_data|
+      sprite_pieces_with_selector_data.map do |sp, selector_data|
         begin
           raise selector_data.inspect if sp.nil?
           sprite_piece_path = sp.source_path
           sprite_piece_image = Image.read(sprite_piece_path).first
-          
+
           curr_sprite_image = sprite_image.crop(
             selector_data.x,
             selector_data.y,
@@ -65,7 +67,7 @@ class Sprites
             selector_data.height
           )
 
-          diff_iamge, pd = curr_sprite_image.compare_channel(sprite_piece_image, MeanSquaredErrorMetric)
+          _, pd = curr_sprite_image.compare_channel(sprite_piece_image, MeanSquaredErrorMetric)
           pd
         ensure
           sprite_piece_image.destroy! if sprite_piece_image
@@ -81,10 +83,18 @@ class Sprites
 
     def parser
       stylesheet_path = sprite.stylesheet_path
-      parser = CssParser::Parser.new
-      parser.load_file!(File.basename(stylesheet_path), File.dirname(stylesheet_path), :screen)
-      parser
+      CSSPool.CSS open(stylesheet_path)
     end
 
+    def declaration_for_property(declarations, property)
+      declarations.find {|declaration| property == declaration.property}.expressions.map(&:to_s).join(' ')
+    end
+
+    def uri_expression_for_background(declarations)
+      decl = declarations.find {|declaration| 'background' == declaration.property }.expressions.find do |expression|
+        expression.is_a?(CSSPool::Terms::URI)
+      end
+      decl && decl.value
+    end
   end
 end
