@@ -28,7 +28,7 @@ class Sprites
         )
 
         default_definition_file = File.join(engine.config.root, 'config/sprites.rb')
-        if File.exists? default_definition_file        
+        if File.exists? default_definition_file
           sprites.configuration.definition_file = default_definition_file
         else
           sprites.configuration.autoload = true
